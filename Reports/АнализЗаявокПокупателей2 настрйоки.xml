@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Settings xmlns="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<selection>
+		<item xsi:type="SelectedItemFolder">
+			<item xsi:type="SelectedItemField">
+				<field>Поставщик</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>МенеджерЗаказа</field>
+			</item>
+			<placement>Vertically</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<title>Номенклатура</title>
+			<item xsi:type="SelectedItemField">
+				<field>Номенклатура</field>
+			</item>
+			<item xsi:type="SelectedItemFolder">
+				<item xsi:type="SelectedItemField">
+					<field>Артикул</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Изготовитель</field>
+				</item>
+				<placement>Together</placement>
+			</item>
+			<placement>Vertically</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<title>Заявка, покупатель</title>
+			<item xsi:type="SelectedItemFolder">
+				<item xsi:type="SelectedItemField">
+					<field>Заявка</field>
+				</item>
+				<item xsi:type="SelectedItemField">
+					<field>Покупатель</field>
+				</item>
+				<placement>Together</placement>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>Поступление</field>
+			</item>
+			<placement>Vertically</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<title>Нач. даты</title>
+			<item xsi:type="SelectedItemField">
+				<field>ДатаНачалаЗаявки</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>НачДатаЗаказа</field>
+			</item>
+			<placement>Vertically</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<title>Гарант. Даты</title>
+			<item xsi:type="SelectedItemField">
+				<field>СрокГарантированный</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>СрокГарантированныйПоставщика</field>
+			</item>
+			<placement>Vertically</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<title>Просрочки</title>
+			<item xsi:type="SelectedItemField">
+				<field>ПросрочкаКлиенту</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>ПросрочкаПоставщика</field>
+			</item>
+			<placement>Vertically</placement>
+		</item>
+		<item xsi:type="SelectedItemFolder">
+			<item xsi:type="SelectedItemField">
+				<field>ОстатокПоЗаявке</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>СвободныйОстаток</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>КоличествоВРезерве</field>
+			</item>
+			<item xsi:type="SelectedItemField">
+				<field>КоличествоОтказано</field>
+			</item>
+			<placement>Auto</placement>
+		</item>
+	</selection>
+	<filter>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Поставщик</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>6292d26e-66a2-4e4a-bf09-329b22dfc8e7</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">МенеджерЗаявки</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingPresentation xsi:type="xs:string">Менеджер заявки</userSettingPresentation>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">МенеджерЗаказа</left>
+			<comparisonType>Equal</comparisonType>
+			<userSettingID>06ad6af1-1cd7-4631-85a8-a0da56cd0974</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">ЕстьПоступлениеПоЗаявке</left>
+			<comparisonType>Equal</comparisonType>
+			<right xsi:type="xs:boolean">false</right>
+			<userSettingID>99ff8cd5-bd5a-4d0c-9f83-37ecbd4288a6</userSettingID>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Склад</left>
+			<comparisonType>Equal</comparisonType>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Покупатель</left>
+			<comparisonType>Equal</comparisonType>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Заказ</left>
+			<comparisonType>Equal</comparisonType>
+		</item>
+		<item xsi:type="FilterItemComparison">
+			<use>false</use>
+			<left xsi:type="dcscor:Field">Заявка</left>
+			<comparisonType>Equal</comparisonType>
+		</item>
+	</filter>
+	<dataParameters>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>Период</dcscor:parameter>
+			<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+			<userSettingID>8154fc3e-21a7-4b49-ad47-183b44974038</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ПоказыватьОтказы</dcscor:parameter>
+			<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+			<userSettingID>e19e4309-cf8e-4e12-84b1-a1d93f8ea635</userSettingID>
+		</dcscor:item>
+		<dcscor:item xsi:type="SettingsParameterValue">
+			<dcscor:use>false</dcscor:use>
+			<dcscor:parameter>ПоказыватьРезервы</dcscor:parameter>
+			<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+			<userSettingID>9aa44880-4ace-4d32-a755-a9871a5ce555</userSettingID>
+		</dcscor:item>
+	</dataParameters>
+	<conditionalAppearance>
+		<item>
+			<selection>
+				<item>
+					<field>ПросрочкаКлиенту</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">ПросрочкаКлиенту</left>
+					<comparisonType>Greater</comparisonType>
+					<right xsi:type="xs:decimal">0</right>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ЦветФона</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:Color">web:LightCoral</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</item>
+		<item>
+			<selection>
+				<item>
+					<field>ПросрочкаПоставщика</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">ПросрочкаПоставщика</left>
+					<comparisonType>Greater</comparisonType>
+					<right xsi:type="xs:decimal">0</right>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ЦветФона</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:Color">web:LightCoral</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</item>
+		<item>
+			<selection>
+				<item>
+					<field>Поступление</field>
+				</item>
+			</selection>
+			<filter>
+				<item xsi:type="FilterItemComparison">
+					<left xsi:type="dcscor:Field">Поступление</left>
+					<comparisonType>NotFilled</comparisonType>
+				</item>
+			</filter>
+			<appearance>
+				<dcscor:item xsi:type="SettingsParameterValue">
+					<dcscor:parameter>ЦветФона</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:Color">web:PaleGoldenrod</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</item>
+	</conditionalAppearance>
+	<item xsi:type="StructureItemGroup">
+		<groupItems>
+			<item xsi:type="GroupItemField">
+				<field>Заказ</field>
+				<groupType>Items</groupType>
+				<periodAdditionType>None</periodAdditionType>
+				<periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionBegin>
+				<periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</periodAdditionEnd>
+			</item>
+		</groupItems>
+		<order>
+			<item xsi:type="OrderItemAuto"/>
+		</order>
+		<selection>
+			<item xsi:type="SelectedItemAuto"/>
+		</selection>
+		<item xsi:type="StructureItemGroup">
+			<order>
+				<item xsi:type="OrderItemAuto"/>
+			</order>
+			<selection>
+				<item xsi:type="SelectedItemAuto"/>
+			</selection>
+		</item>
+	</item>
+</Settings>

@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВнутреннийЗаказ</dataPath>
+			<field>ВнутреннийЗаказ</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:DocumentRef.ВнутреннийЗаказ</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Перемещение</dataPath>
+			<field>Перемещение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПеремещениеКоличество</dataPath>
+			<field>ПеремещениеКоличество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоЗаказ</dataPath>
+			<field>КоличествоЗаказ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ксДокументПередачи</dataPath>
+			<field>ксДокументПередачи</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПО</dataPath>
+			<field>КоличествоПО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество ПО</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоРО</dataPath>
+			<field>КоличествоРО</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество РО</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РазностьПОиРО</dataPath>
+			<field>РазностьПОиРО</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВложенныйЗапрос.ВнутреннийЗаказ,
+	ВложенныйЗапрос.Номенклатура,
+	ВложенныйЗапрос.Перемещение,
+	СУММА(ВложенныйЗапрос.Количество) КАК Количество,
+	ВложенныйЗапрос.КоличествоЗаказ
+ПОМЕСТИТЬ ВЗПерем
+ИЗ
+	(ВЫБРАТЬ РАЗЛИЧНЫЕ
+		ВнутреннийЗаказТовары.Ссылка КАК ВнутреннийЗаказ,
+		ВнутреннийЗаказТовары.Номенклатура КАК Номенклатура,
+		ПеремещениеТоваров.Ссылка КАК Перемещение,
+		ПеремещениеТоваров.Количество * ПеремещениеТоваров.Коэффициент КАК Количество,
+		ВнутреннийЗаказТовары.Количество * ВнутреннийЗаказТовары.Коэффициент КАК КоличествоЗаказ
+	ИЗ
+		Документ.ВнутреннийЗаказ.Товары КАК ВнутреннийЗаказТовары
+			ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПеремещениеТоваров.Товары КАК ПеремещениеТоваров
+			ПО ВнутреннийЗаказТовары.Ссылка = ПеремещениеТоваров.ВнутреннийЗаказ
+				И ВнутреннийЗаказТовары.Номенклатура = ПеремещениеТоваров.Номенклатура) КАК ВложенныйЗапрос
+
+СГРУППИРОВАТЬ ПО
+	ВложенныйЗапрос.ВнутреннийЗаказ,
+	ВложенныйЗапрос.Номенклатура,
+	ВложенныйЗапрос.Перемещение,
+	ВложенныйЗапрос.КоличествоЗаказ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЗПерем.Перемещение КАК Перемещение,
+	ПриходныйОрдерНаТоварыТовары.Количество КАК КоличествоПО,
+	ВЗПерем.ВнутреннийЗаказ КАК ВнутреннийЗаказ,
+	ВЗПерем.Номенклатура КАК Номенклатура,
+	РасходныйОрдерНаТоварыТовары.Количество КАК КоличествоРО,
+	ЕСТЬNULL(ПриходныйОрдерНаТоварыТовары.Количество, 0) - ЕСТЬNULL(РасходныйОрдерНаТоварыТовары.Количество, 0) КАК РазностьПОиРО,
+	ВЗПерем.Количество КАК ПеремещениеКоличество,
+	ВЗПерем.КоличествоЗаказ КАК КоличествоЗаказ
+{ВЫБРАТЬ
+	Перемещение.*,
+	КоличествоПО,
+	ВнутреннийЗаказ.*,
+	Номенклатура.*,
+	КоличествоРО,
+	РазностьПОиРО,
+	ПеремещениеКоличество,
+	КоличествоЗаказ}
+ИЗ
+	ВЗПерем КАК ВЗПерем
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			РасходныйОрдерНаТоварыТовары.Номенклатура КАК Номенклатура,
+			СУММА(РасходныйОрдерНаТоварыТовары.Количество * РасходныйОрдерНаТоварыТовары.Коэффициент) КАК Количество,
+			РасходныйОрдерНаТоварыТовары.ксДокументПередачи КАК ксДокументПередачи,
+			РасходныйОрдерНаТоварыТовары.ДокументРезерва КАК ВнутреннийЗаказ
+		{ВЫБРАТЬ
+			Номенклатура.*,
+			Количество КАК КоличествоРО,
+			ксДокументПередачи.*,
+			ВнутреннийЗаказ.*}
+		ИЗ
+			Документ.РасходныйОрдерНаТовары.Товары КАК РасходныйОрдерНаТоварыТовары
+		ГДЕ
+			РасходныйОрдерНаТоварыТовары.Ссылка.Проведен = ИСТИНА
+			И (РасходныйОрдерНаТоварыТовары.ДокументРезерва ССЫЛКА Документ.ВнутреннийЗаказ
+					ИЛИ РасходныйОрдерНаТоварыТовары.ДокументРезерва ЕСТЬ NULL )
+		
+		СГРУППИРОВАТЬ ПО
+			РасходныйОрдерНаТоварыТовары.Номенклатура,
+			РасходныйОрдерНаТоварыТовары.ксДокументПередачи,
+			РасходныйОрдерНаТоварыТовары.ДокументРезерва) КАК РасходныйОрдерНаТоварыТовары
+		ПО (РасходныйОрдерНаТоварыТовары.ксДокументПередачи = ВЗПерем.Перемещение)
+			И (РасходныйОрдерНаТоварыТовары.Номенклатура = ВЗПерем.Номенклатура)
+			И ВЗПерем.ВнутреннийЗаказ = РасходныйОрдерНаТоварыТовары.ВнутреннийЗаказ
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ПриходныйОрдерНаТоварыТовары.Номенклатура КАК Номенклатура,
+			СУММА(ВЫБОР
+					КОГДА ПриходныйОрдерНаТоварыТовары.Ссылка.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийПриходныйОрдер.вктДоверительнаяПриемка)
+						ТОГДА ПриходныйОрдерНаТоварыТовары.ксКоличествоПоНакладной * ПриходныйОрдерНаТоварыТовары.Коэффициент
+					ИНАЧЕ ПриходныйОрдерНаТоварыТовары.Количество * ПриходныйОрдерНаТоварыТовары.Коэффициент
+				КОНЕЦ) КАК Количество,
+			ПриходныйОрдерНаТоварыТовары.Ссылка.ДокументПеремещения КАК ксДокументПередачи,
+			ПриходныйОрдерНаТоварыТовары.ДокументРезерва КАК ВнутреннийЗаказ
+		{ВЫБРАТЬ
+			Номенклатура.*,
+			Количество КАК КоличествоПО,
+			ксДокументПередачи.*,
+			ВнутреннийЗаказ.*}
+		ИЗ
+			Документ.ПриходныйОрдерНаТовары.Товары КАК ПриходныйОрдерНаТоварыТовары
+		ГДЕ
+			ПриходныйОрдерНаТоварыТовары.Ссылка.Проведен = ИСТИНА
+			И (ПриходныйОрдерНаТоварыТовары.ДокументРезерва ССЫЛКА Документ.ВнутреннийЗаказ
+					ИЛИ ПриходныйОрдерНаТоварыТовары.ДокументРезерва ЕСТЬ NULL )
+		
+		СГРУППИРОВАТЬ ПО
+			ПриходныйОрдерНаТоварыТовары.Номенклатура,
+			ПриходныйОрдерНаТоварыТовары.Ссылка.ДокументПеремещения,
+			ПриходныйОрдерНаТоварыТовары.ДокументРезерва) КАК ПриходныйОрдерНаТоварыТовары
+		ПО (ПриходныйОрдерНаТоварыТовары.ксДокументПередачи = ВЗПерем.Перемещение)
+			И (ПриходныйОрдерНаТоварыТовары.Номенклатура = ВЗПерем.Номенклатура)
+			И (ВЫБОР
+				КОГДА ПриходныйОрдерНаТоварыТовары.ВнутреннийЗаказ ЕСТЬ NULL 
+					ТОГДА ИСТИНА
+				ИНАЧЕ ВЗПерем.ВнутреннийЗаказ = ПриходныйОрдерНаТоварыТовары.ВнутреннийЗаказ
+			КОНЕЦ)
+{ГДЕ
+	ВЗПерем.Перемещение.*,
+	ВЗПерем.ВнутреннийЗаказ.*,
+	ВЗПерем.Номенклатура.*}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>РазницаПерРасх</dataPath>
+		<expression>ПеремещениеКоличество-РасходныйОрдерКоличество</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Разница пер расх</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ПеремещениеКоличество</dataPath>
+		<expression>Сумма(ПеремещениеКоличество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РазницаПерРасх</dataPath>
+		<expression>Сумма(РазницаПерРасх)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоЗаказ</dataPath>
+		<expression>Сумма(КоличествоЗаказ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПО</dataPath>
+		<expression>Сумма(КоличествоПО)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоРО</dataPath>
+		<expression>Сумма(КоличествоРО)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РазностьПОиРО</dataPath>
+		<expression>Сумма(РазностьПОиРО)</expression>
+	</totalField>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоЗаказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПеремещениеКоличество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоПО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоРО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РазностьПОиРО</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ВнутреннийЗаказ</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Номенклатура</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

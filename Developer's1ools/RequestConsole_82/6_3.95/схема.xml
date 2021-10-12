@@ -1,0 +1,390 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФПК</dataPath>
+			<field>ФПК</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЦенаАвтомобиляПриПокупке</dataPath>
+			<field>ЦенаАвтомобиляПриПокупке</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховойПолис</dataPath>
+			<field>СтраховойПолис</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страховой полис</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Регистратор</dataPath>
+			<field>Регистратор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Авторабота</dataPath>
+			<field>Авторабота</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СрокОтсутствия</dataPath>
+			<field>СрокОтсутствия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Срок отсутствия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕстьСОПД</dataPath>
+			<field>ЕстьСОПД</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Есть СОПД</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СправкаСчет.ДокументОснование,
+	СправкаСчет.Автомобиль,
+	СправкаСчет.Лизингополучатель
+ПОМЕСТИТЬ Лизингополучатели
+ИЗ
+	Документ.СправкаСчет КАК СправкаСчет
+ГДЕ
+	СправкаСчет.Лизинг = ИСТИНА
+	И СправкаСчет.ПометкаУдаления = ЛОЖЬ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Продажи.Контрагент,
+	РАЗНОСТЬДАТ(МАКСИМУМ(Продажи.Период), &amp;ТекущаяДата, ДЕНЬ) КАК СрокОтсутствия
+ПОМЕСТИТЬ СрокиОтсутствия
+ИЗ
+	(ВЫБРАТЬ
+		Продажи.Покупатель КАК Контрагент,
+		Продажи.Период КАК Период
+	ИЗ
+		РегистрНакопления.Продажи КАК Продажи
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ПродажиАвтомобилей.Покупатель,
+		ПродажиАвтомобилей.Период
+	ИЗ
+		РегистрНакопления.ПродажиАвтомобилей КАК ПродажиАвтомобилей) КАК Продажи
+
+СГРУППИРОВАТЬ ПО
+	Продажи.Контрагент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Продажи.ФПК,
+	Продажи.Покупатель,
+	Продажи.Автомобиль,
+	Продажи.Модель,
+	Продажи.Период,
+	Продажи.Организация,
+	Продажи.ЦенаАвтомобиляПриПокупке,
+	Продажи.Номенклатура,
+	Продажи.Авторабота,
+	Продажи.ВидРемонта,
+	Продажи.Регистратор,
+	ЕСТЬNULL(СрокиОтсутствия.СрокОтсутствия, 0) КАК СрокОтсутствия,
+	Продажи.Лизинг,
+	ВЫБОР
+		КОГДА СогласиеНаОбработкуПДСрезПоследних.Контрагент ЕСТЬ NULL 
+			ТОГДА ЛОЖЬ
+		ИНАЧЕ ИСТИНА
+	КОНЕЦ КАК ЕстьСОПД
+ИЗ
+	(ВЫБРАТЬ
+		ЛОЖЬ КАК ФПК,
+		ПродажиСервисОбороты.Покупатель КАК Покупатель,
+		ПродажиСервисОбороты.Автомобиль КАК Автомобиль,
+		ПродажиСервисОбороты.Автомобиль.Модель КАК Модель,
+		ПродажиСервисОбороты.ПериодДень КАК Период,
+		ПродажиСервисОбороты.ПодразделениеКомпании.Организация КАК Организация,
+		NULL КАК ЦенаАвтомобиляПриПокупке,
+		NULL КАК СтраховойПолис,
+		ПродажиСервисОбороты.Номенклатура КАК Номенклатура,
+		ПродажиСервисОбороты.Авторабота КАК Авторабота,
+		ПродажиСервисОбороты.ВидРемонта КАК ВидРемонта,
+		ЛОЖЬ КАК Лизинг,
+		ПродажиСервисОбороты.Регистратор КАК Регистратор
+	ИЗ
+		РегистрНакопления.Продажи.Обороты(, , Авто, ) КАК ПродажиСервисОбороты
+	ГДЕ
+		ПродажиСервисОбороты.Автомобиль &lt;&gt; &amp;ПустойАвтомобиль
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЛОЖЬ,
+		ВЫБОР
+			КОГДА Лизингополучатели.Лизингополучатель ЕСТЬ NULL 
+				ТОГДА ПродажиАвтомобилейОбороты.Покупатель
+			ИНАЧЕ Лизингополучатели.Лизингополучатель
+		КОНЕЦ,
+		ПродажиАвтомобилейОбороты.Автомобиль,
+		ПродажиАвтомобилейОбороты.Автомобиль.Модель,
+		ПродажиАвтомобилейОбороты.ПериодДень,
+		ПродажиАвтомобилейОбороты.ПодразделениеКомпании.Организация,
+		ВЫБОР
+			КОГДА ПродажиАвтомобилейОбороты.КоличествоОборот &lt;&gt; 0
+				ТОГДА ПродажиАвтомобилейОбороты.СуммаОборот / ПродажиАвтомобилейОбороты.КоличествоОборот
+			ИНАЧЕ 0
+		КОНЕЦ,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		ВЫБОР
+			КОГДА Лизингополучатели.Лизингополучатель ЕСТЬ NULL 
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ,
+		ПродажиАвтомобилейОбороты.Регистратор
+	ИЗ
+		РегистрНакопления.ПродажиАвтомобилей.Обороты(, , Авто, ) КАК ПродажиАвтомобилейОбороты
+			ЛЕВОЕ СОЕДИНЕНИЕ Лизингополучатели КАК Лизингополучатели
+			ПО ПродажиАвтомобилейОбороты.Автомобиль = Лизингополучатели.Автомобиль
+				И ПродажиАвтомобилейОбороты.Регистратор = Лизингополучатели.ДокументОснование
+	ГДЕ
+		ПродажиАвтомобилейОбороты.Автомобиль &lt;&gt; &amp;ПустойАвтомобиль
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ИСТИНА,
+		СобытиеПредпочтения.Ссылка.Контрагент,
+		ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка),
+		СобытиеПредпочтения.Модель,
+		НАЧАЛОПЕРИОДА(СобытиеПредпочтения.Ссылка.Дата, ДЕНЬ),
+		СобытиеПредпочтения.Ссылка.Организация,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		ЛОЖЬ,
+		NULL
+	ИЗ
+		Документ.Событие.Предпочтения КАК СобытиеПредпочтения
+	ГДЕ
+		СобытиеПредпочтения.Ссылка.Контрагент ССЫЛКА Справочник.ПотенциальныеКонтрагенты
+	{ГДЕ
+		СобытиеПредпочтения.Ссылка.Организация.* КАК Организация}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ИСТИНА,
+		Событие.Контрагент,
+		ЗНАЧЕНИЕ(Справочник.Автомобили.ПустаяСсылка),
+		СделкиCRM.Модель,
+		НАЧАЛОПЕРИОДА(СделкиCRM.Дата, ДЕНЬ),
+		Событие.Организация,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		NULL,
+		ЛОЖЬ,
+		NULL
+	ИЗ
+		Документ.Событие КАК Событие
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.СделкиCRM.Предпочтения КАК СделкиCRM
+			ПО Событие.СделкаСРМ = СделкиCRM.Ссылка
+	ГДЕ
+		Событие.Контрагент ССЫЛКА Справочник.ПотенциальныеКонтрагенты
+	{ГДЕ
+		Событие.Организация.* КАК Организация}
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ЛОЖЬ,
+		СтраховойПолис.Контрагент,
+		СтраховойПолис.ОбъектСтрахования,
+		СтраховойПолис.ОбъектСтрахования.Модель,
+		НАЧАЛОПЕРИОДА(СтраховойПолис.Дата, ДЕНЬ),
+		СтраховойПолис.Организация,
+		NULL,
+		СтраховойПолис.Ссылка,
+		NULL,
+		NULL,
+		NULL,
+		ЛОЖЬ,
+		СтраховойПолис.Ссылка
+	ИЗ
+		Документ.СтраховойПолис КАК СтраховойПолис
+	ГДЕ
+		СтраховойПолис.Проведен) КАК Продажи
+		ЛЕВОЕ СОЕДИНЕНИЕ СрокиОтсутствия КАК СрокиОтсутствия
+		ПО Продажи.Покупатель = СрокиОтсутствия.Контрагент
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.СогласиеНаОбработкуПД.СрезПоследних КАК СогласиеНаОбработкуПДСрезПоследних
+		ПО Продажи.Покупатель = СогласиеНаОбработкуПДСрезПоследних.Контрагент
+{ГДЕ
+	Продажи.ФПК,
+	Продажи.Покупатель.*,
+	Продажи.Автомобиль.*,
+	Продажи.Модель.*,
+	Продажи.Период,
+	Продажи.Организация.* КАК Организация,
+	Продажи.ЦенаАвтомобиляПриПокупке,
+	Продажи.СтраховойПолис.*,
+	Продажи.Номенклатура.*,
+	Продажи.Авторабота.*,
+	Продажи.ВидРемонта.*,
+	Продажи.Регистратор.*,
+	(ВЫБОР
+			КОГДА СогласиеНаОбработкуПДСрезПоследних.Контрагент ЕСТЬ NULL 
+				ТОГДА ЛОЖЬ
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ) КАК ЕстьСОПД,
+	(ЕСТЬNULL(СрокиОтсутствия.СрокОтсутствия, 0)) КАК СрокОтсутствия}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<parameter>
+		<name>ПустойАвтомобиль</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустой автомобиль</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Автомобили</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТекущаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Текущая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>0604e682-a816-4d5a-873a-a4b4cd76b6e7</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель.Бренд</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>35428b9f-b9ab-45fe-8e76-8466a7e3e50c</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Модель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>149de13d-0076-4fb0-9c33-daf81c32a4d2</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:userSettingID>1301961c-6bc1-443c-a381-12a7ee6371bb</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters/>
+			<dcsset:outputParameters/>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Покупатель</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters/>
+			</dcsset:item>
+			<dcsset:itemsUserSettingID>9ddb8798-82fa-40c2-97f7-8fda77fe1325</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

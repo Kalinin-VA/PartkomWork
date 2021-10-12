@@ -1,0 +1,32 @@
+select db_name(sa.dbid) as DBname 
+	, sa.name as LogicalName
+	, case sa.groupid
+		WHEN 0 then 'LOG'
+		ELSE sfg.groupname
+	  end as Filegroup
+	, sa.filename as Filename
+	, cast(sf.size*8/1024. as numeric(19,3))as sizeMB
+	, cast(sf.spaceused*8/1024. as numeric(19,3)) as spaceusedMB
+	, cast((sf.size-sf.spaceused)*8/1024. as numeric(19,3)) as freespaceMB
+	, case sf.maxsize
+		when -1 then 'Unlimited'
+		else cast(cast(sf.maxsize*8/1024.  as numeric(19,3))as varchar(22))
+	  end as maxsizeMB
+	, cast(sf.growth*8/1024. as numeric(19,3)) as nextgrowthMB
+from master..sysaltfiles sa 
+left join (
+	select   cast(size as bigint) as size
+			,fileid
+			,groupid
+			,cast(fileproperty(name,'SpaceUsed')as bigint) as spaceused 
+			,cast(maxsize as bigint) as maxsize
+			,cast(case 
+				when status & 0x100000 = 0 then growth
+				else size*growth/100
+			 end as bigint) as growth
+	from sysfiles
+	) sf on sf.fileid=sa.fileid 
+		and sf.groupid = sa.groupid
+left outer join sysfilegroups sfg on sfg.groupid = sf.groupid
+where sa.dbid = db_id()
+order by case when sa.groupid = 0 then 1 else 0 end, sa.groupid, sa.fileid

@@ -1,0 +1,15 @@
+select  top 1 _Document1213._Number,_Document1213._IDRRef,_Reference2144._Code from _Document1213
+inner join _Document5710_VT5742 on _Document5710_VT5742._Fld5744RRef  = _Document1213._IDRRef 
+INNER JOIN _Reference2144 on _Document1213._Fld2533RRef = _Reference2144._IDRRef
+where _Reference2144._Code = '000000045'
+
+SELECT TOP 1 _Reference2144._IDRRef
+  FROM _Reference2144
+  where _Reference2144._Code = '000000046'
+
+Update _Document1213 set _Document1213._Fld2533RRef = (SELECT TOP 1 _Reference2144._IDRRef FROM _Reference2144 where _Reference2144._Code = '000000046') 
+where _Document1213._IDRRef in (
+select  _Document1213._IDRRef from _Document1213
+inner join _Document5710_VT5742 on _Document5710_VT5742._Fld5744RRef  = _Document1213._IDRRef 
+INNER JOIN _Reference2144 on _Document1213._Fld2533RRef = _Reference2144._IDRRef
+where _Reference2144._Code = '000000045' )

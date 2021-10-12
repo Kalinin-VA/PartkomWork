@@ -1,0 +1,5 @@
+Select top 100  * from _Reference2459 
+inner join _Document1213 on _Reference2459._Fld2464RRef = _Document1213._IDRRef
+ where
+_Reference2459._Fld5170RRef = 0x80E1005056817B9C11E5FBD0C6FDD5E3 
+and _Document1213._Fld2533RRef = 0x80E1005056817B9C11E5FBD0C6FDD5E1

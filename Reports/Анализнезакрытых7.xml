@@ -1,0 +1,1377 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Заказы</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорКонтрагента</dataPath>
+			<field>ДоговорКонтрагента</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТорговаяТочка</dataPath>
+			<field>ТорговаяТочка</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтрокаЗаявки</dataPath>
+			<field>СтрокаЗаявки</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заказ</dataPath>
+			<field>Заказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Поставщик</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Покупатель</dataPath>
+			<field>Покупатель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Покупатель</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Качество</dataPath>
+			<field>Качество</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Заявка</dataPath>
+			<field>Заявка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заявка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АктПримемки</dataPath>
+			<field>АктПримемки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Акт примемки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокПоЗаявке</dataPath>
+			<field>ОстатокПоЗаявке</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток по заявке</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОстатокПоЗаказу</dataPath>
+			<field>ОстатокПоЗаказу</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Остаток по заказу</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаНачалаЗаказа</dataPath>
+			<field>ДатаНачалаЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала заказа</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаКонцаЗаказа</dataPath>
+			<field>ДатаКонцаЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата конца заказа</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>3</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДниВРаботеЗаказа</dataPath>
+			<field>ДниВРаботеЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дни в работе заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Изготовитель</dataPath>
+			<field>Изготовитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Изготовитель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерЗаказа</dataPath>
+			<field>МенеджерЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерЗаявки</dataPath>
+			<field>МенеджерЗаявки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер заявки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОстатокПоЗаказу</dataPath>
+			<field>СуммаОстатокПоЗаказу</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма остаток по заказу</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДетальныйКомментарий</dataPath>
+			<field>ДетальныйКомментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Детальный комментарий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаОстатокПоЗаявке</dataPath>
+			<field>СуммаОстатокПоЗаявке</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма остаток по заявке</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоследняяКорректировкаЗаказа</dataPath>
+			<field>ПоследняяКорректировкаЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Последняя корректировка заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерКлиентаПродажи</dataPath>
+			<field>МенеджерКлиентаПродажи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер клиента продажи</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Склад</dataPath>
+			<field>Склад</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПоступление</dataPath>
+			<field>ДокументПоступление</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ поступление</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>2</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МенеджерКлиентаСнабжение</dataPath>
+			<field>МенеджерКлиентаСнабжение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Менеджер клиента снабжение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КомментарийЗаказа</dataPath>
+			<field>КомментарийЗаказа</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий заказа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Комментарий</dataPath>
+			<field>Комментарий</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СУММА(СгрупированыеРазмещения.ОстатокПоЗаказу) КАК ОстатокПоЗаказу,
+	СУММА(СгрупированыеРазмещения.СуммаОстатокПоЗаказу) КАК СуммаОстатокПоЗаказу,
+	СгрупированыеРазмещения.СтрокаЗаявки КАК СтрокаЗаявки,
+	МАКСИМУМ(СгрупированыеРазмещения.ТорговаяТочка) КАК ТорговаяТочка,
+	МАКСИМУМ(СгрупированыеРазмещения.Номенклатура) КАК Номенклатура,
+	МАКСИМУМ(СгрупированыеРазмещения.ДокументПоступление) КАК ДокументПоступление,
+	МАКСИМУМ(СгрупированыеРазмещения.Поставщик) КАК Поставщик
+ПОМЕСТИТЬ ОстаткиЗаказов
+{ВЫБРАТЬ
+	ОстатокПоЗаказу,
+	СуммаОстатокПоЗаказу,
+	СтрокаЗаявки.*,
+	ТорговаяТочка.*,
+	Номенклатура.*,
+	ДокументПоступление.*,
+	Поставщик.*}
+ИЗ
+	(ВЫБРАТЬ
+		ЗаказыПоставщикамОстатки.КоличествоОстаток КАК ОстатокПоЗаказу,
+		ЗаказыПоставщикамОстатки.СуммаУпрОстаток КАК СуммаОстатокПоЗаказу,
+		ЗаказыПоставщикамОстатки.СтрокаЗаявки КАК СтрокаЗаявки,
+		ЗаказыПоставщикамОстатки.ТорговаяТочка КАК ТорговаяТочка,
+		ЗаказыПоставщикамОстатки.Номенклатура КАК Номенклатура,
+		МАКСИМУМ(ВЫРАЗИТЬ(РазмещенияСтрокЗаказов.Регистратор КАК Документ.ПоступлениеТоваровУслуг)) КАК ДокументПоступление,
+		ЗаказыПоставщикамОстатки.ТорговаяТочка.Владелец КАК Поставщик
+	{ВЫБРАТЬ
+		ОстатокПоЗаказу,
+		СуммаОстатокПоЗаказу,
+		СтрокаЗаявки.*,
+		ТорговаяТочка.*,
+		Номенклатура.*,
+		ДокументПоступление.*,
+		Поставщик.*}
+	ИЗ
+		РегистрНакопления.ЗаказыПоставщикам.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Поставщик, (ЕСТЬNULL(СтрокаЗаявки.Заявка, ЗНАЧЕНИЕ(Документ.ЗаявкаПокупателя.Пустаяссылка))).* КАК Заявка, (ЕСТЬNULL(СтрокаЗаявки.Заказ, ЗНАЧЕНИЕ(Документ.ЗаказПоставщику.Пустаяссылка))).* КАК Заказ, (Склад) КАК Склад, (СтрокаЗаявки) КАК СтрокаЗаявки}) КАК ЗаказыПоставщикамОстатки
+			{ЛЕВОЕ СОЕДИНЕНИЕ РегистрНакопления.РазмещенияСтрокЗаказов КАК РазмещенияСтрокЗаказов
+			ПО ЗаказыПоставщикамОстатки.СтрокаЗаявки = РазмещенияСтрокЗаказов.СтрокаЗаявки
+				И (РазмещенияСтрокЗаказов.Регистратор ССЫЛКА Документ.ПоступлениеТоваровУслуг)
+				И (РазмещенияСтрокЗаказов.ВидДвижения = ЗНАЧЕНИЕ(ВидДвиженияНакопления.Приход))}
+	{ГДЕ
+		ЗаказыПоставщикамОстатки.СтрокаЗаявки.*,
+		РазмещенияСтрокЗаказов.Регистратор.* КАК ДокументПоступление}
+	
+	СГРУППИРОВАТЬ ПО
+		ЗаказыПоставщикамОстатки.СтрокаЗаявки,
+		ЗаказыПоставщикамОстатки.Номенклатура,
+		ЗаказыПоставщикамОстатки.ТорговаяТочка,
+		ЗаказыПоставщикамОстатки.ТорговаяТочка.Владелец,
+		ЗаказыПоставщикамОстатки.СуммаУпрОстаток,
+		ЗаказыПоставщикамОстатки.КоличествоОстаток) КАК СгрупированыеРазмещения
+{ГДЕ
+	СгрупированыеРазмещения.ОстатокПоЗаказу КАК ОстатокПоЗаказу,
+	СгрупированыеРазмещения.СуммаОстатокПоЗаказу,
+	СгрупированыеРазмещения.СтрокаЗаявки.*,
+	СгрупированыеРазмещения.ТорговаяТочка.*,
+	СгрупированыеРазмещения.Номенклатура.*,
+	СгрупированыеРазмещения.ДокументПоступление,
+	СгрупированыеРазмещения.Поставщик.*}
+
+СГРУППИРОВАТЬ ПО
+	СгрупированыеРазмещения.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаявкиПокупателейОстатки.Номенклатура КАК Номенклатура,
+	ЗаявкиПокупателейОстатки.Качество КАК Качество,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки КАК СтрокаЗаявки,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка КАК ТорговаяТочка,
+	ЗаявкиПокупателейОстатки.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	СУММА(ЗаявкиПокупателейОстатки.КоличествоОстаток) КАК ОстатокПоЗаявке,
+	СУММА(ЕСТЬNULL(ЗаказыПоставщикамОстатки.ОстатокПоЗаказу, 0)) КАК ОстатокПоЗаказу,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ КАК Заказ,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка КАК Заявка,
+	МАКСИМУМ(ДокументыКорректировокСрезПоследних.ДокументКорректировки) КАК ПоследняяКорректировкаЗаказа,
+	СУММА(ЗаявкиПокупателейОстатки.СуммаУпрОстаток) КАК СуммаОстатокПоЗаявке,
+	СУММА(ЗаказыПоставщикамОстатки.СуммаОстатокПоЗаказу) КАК СуммаОстатокПоЗаказу,
+	МАКСИМУМ(МенТорговыхТочекСрезПоследних_Продажи.Менеджер) КАК МенеджерКлиентаПродажи,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец КАК Покупатель,
+	ЗаказыПоставщикамОстатки.ДокументПоступление КАК ДокументПоступление,
+	МенТорговыхТочекСрезПоследних_Снабжение.Менеджер КАК МенеджерКлиентаСнабжение,
+	ЕСТЬNULL(ЗаказыПоставщикамОстатки.Поставщик, ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ.Контрагент) КАК Поставщик
+ПОМЕСТИТЬ ВТОстаткиЗаявок
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Качество.*,
+	СтрокаЗаявки.*,
+	ТорговаяТочка.*,
+	ДоговорКонтрагента.*,
+	ОстатокПоЗаявке,
+	ОстатокПоЗаказу,
+	Заказ.*,
+	Заявка.*,
+	МенеджерКлиентаПродажи.*,
+	МенеджерКлиентаСнабжение.*,
+	ДокументПоступление,
+	Поставщик.*}
+ИЗ
+	РегистрНакопления.ЗаявкиПокупателей.Остатки({(&amp;Период)}, {(ЕСТЬNULL(ТорговаяТочка.Владелец, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Покупатель, (ЕСТЬNULL(СтрокаЗаявки.Поставщик, ЗНАЧЕНИЕ(Справочник.Контрагенты.ПустаяСсылка))).* КАК Поставщик, (СтрокаЗаявки) КАК СтрокаЗаявки, (ЕСТЬNULL(СтрокаЗаявки.Заявка, ЗНАЧЕНИЕ(Документ.ЗаявкаПокупателя.ПустаяСсылка))).* КАК Заявка}) КАК ЗаявкиПокупателейОстатки
+		{ЛЕВОЕ СОЕДИНЕНИЕ ОстаткиЗаказов КАК ЗаказыПоставщикамОстатки
+		ПО ЗаявкиПокупателейОстатки.СтрокаЗаявки = ЗаказыПоставщикамОстатки.СтрокаЗаявки
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ДокументыКорректировок.СрезПоследних(, Документ ССЫЛКА Документ.ЗаказПоставщику) КАК ДокументыКорректировокСрезПоследних
+		ПО ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ = ДокументыКорректировокСрезПоследних.Документ
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Продажи)) КАК МенТорговыхТочекСрезПоследних_Продажи
+		ПО ЗаявкиПокупателейОстатки.ТорговаяТочка = МенТорговыхТочекСрезПоследних_Продажи.ТорговаяТочка
+			И ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец = МенТорговыхТочекСрезПоследних_Продажи.Контрагент}
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.МенеджерыТорговыхТочек.СрезПоследних(, ВидМенеджера = ЗНАЧЕНИЕ(Перечисление.ВидыМенеджеров.Снабжения)) КАК МенТорговыхТочекСрезПоследних_Снабжение
+		ПО ЗаявкиПокупателейОстатки.СтрокаЗаявки.Поставщик = МенТорговыхТочекСрезПоследних_Снабжение.Контрагент
+			И ЗаявкиПокупателейОстатки.СтрокаЗаявки.Поставщик.ОсновнаяТорговаяТочка = МенТорговыхТочекСрезПоследних_Снабжение.ТорговаяТочка
+{ГДЕ
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ.Менеджер.* КАК МенеджерЗаказа,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка.Менеджер.* КАК МенеджерЗаявки,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец.* КАК Покупатель,
+	МенТорговыхТочекСрезПоследних_Продажи.Менеджер.* КАК МенеджерКлиентаПродажи,
+	МенТорговыхТочекСрезПоследних_Снабжение.Менеджер.* КАК МенеджерКлиентаСнабжение}
+
+СГРУППИРОВАТЬ ПО
+	ЗаявкиПокупателейОстатки.Номенклатура,
+	ЗаявкиПокупателейОстатки.Качество,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка,
+	ЗаявкиПокупателейОстатки.ДоговорКонтрагента,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ,
+	ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заявка,
+	ЗаявкиПокупателейОстатки.ТорговаяТочка.Владелец,
+	ЗаказыПоставщикамОстатки.ДокументПоступление,
+	МенТорговыхТочекСрезПоследних_Снабжение.Менеджер,
+	ЗаказыПоставщикамОстатки.Поставщик,
+	ЕСТЬNULL(ЗаказыПоставщикамОстатки.Поставщик, ЗаявкиПокупателейОстатки.СтрокаЗаявки.Заказ.Контрагент)
+
+ИНДЕКСИРОВАТЬ ПО
+	СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ ОстаткиЗаказов
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗаказыПоставщикам.СтрокаЗаявки,
+	МИНИМУМ(НАЧАЛОПЕРИОДА(ЗаказыПоставщикам.Период, ДЕНЬ)) КАК ДатаНачалаЗаказа,
+	МАКСИМУМ(НАЧАЛОПЕРИОДА(ЗаказыПоставщикам.Период, ДЕНЬ)) КАК ДатаКонцаЗаказа
+ПОМЕСТИТЬ ДатыЗаказов
+ИЗ
+	РегистрНакопления.ЗаказыПоставщикам КАК ЗаказыПоставщикам
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+		ПО ЗаказыПоставщикам.СтрокаЗаявки = ВТОстаткиЗаявок.СтрокаЗаявки
+
+СГРУППИРОВАТЬ ПО
+	ЗаказыПоставщикам.СтрокаЗаявки
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТОстаткиЗаявок.Номенклатура КАК Номенклатура,
+	ВТОстаткиЗаявок.Качество КАК Качество,
+	ВТОстаткиЗаявок.СтрокаЗаявки КАК СтрокаЗаявки,
+	ВТОстаткиЗаявок.ТорговаяТочка КАК ТорговаяТочка,
+	ВТОстаткиЗаявок.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	ВТОстаткиЗаявок.ОстатокПоЗаявке КАК ОстатокПоЗаявке,
+	ВТОстаткиЗаявок.ОстатокПоЗаказу КАК ОстатокПоЗаказу,
+	ВТОстаткиЗаявок.Заказ КАК Заказ,
+	ВТОстаткиЗаявок.Заявка КАК Заявка,
+	ВТОстаткиЗаявок.ПоследняяКорректировкаЗаказа КАК ПоследняяКорректировкаЗаказа,
+	ЗаказПоставщикуТовары.Комментарий КАК ДетальныйКомментарий,
+	ВТОстаткиЗаявок.СуммаОстатокПоЗаявке КАК СуммаОстатокПоЗаявке,
+	ВТОстаткиЗаявок.СуммаОстатокПоЗаказу КАК СуммаОстатокПоЗаказу,
+	ВТОстаткиЗаявок.МенеджерКлиентаПродажи КАК МенеджерКлиентаПродажи,
+	ВТОстаткиЗаявок.Покупатель КАК Покупатель,
+	ВТОстаткиЗаявок.ДокументПоступление КАК ДокументПоступление,
+	ВТОстаткиЗаявок.МенеджерКлиентаСнабжение КАК МенеджерКлиентаСнабжение,
+	ВТОстаткиЗаявок.Поставщик КАК Поставщик
+ПОМЕСТИТЬ ВтОстаткиСКОмментарием
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Качество.*,
+	СтрокаЗаявки.*,
+	ТорговаяТочка.*,
+	ДоговорКонтрагента.*,
+	ОстатокПоЗаявке,
+	ОстатокПоЗаказу,
+	Заказ.*,
+	Заявка.*,
+	ПоследняяКорректировкаЗаказа.*,
+	ДетальныйКомментарий,
+	СуммаОстатокПоЗаявке,
+	СуммаОстатокПоЗаказу,
+	МенеджерКлиентаПродажи.*,
+	Покупатель.*,
+	ДокументПоступление,
+	МенеджерКлиентаСнабжение.*,
+	Поставщик.*}
+ИЗ
+	ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ЗаказПоставщику.Товары КАК ЗаказПоставщикуТовары
+		ПО ВТОстаткиЗаявок.ПоследняяКорректировкаЗаказа = ЗаказПоставщикуТовары.Ссылка
+			И ВТОстаткиЗаявок.СтрокаЗаявки = ЗаказПоставщикуТовары.СтрокаЗаявки
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;БезМинусовыхЗаявок
+				ТОГДА ВТОстаткиЗаявок.СтрокаЗаявки В
+						(ВЫБРАТЬ
+							ВТОстаткиЗаявок.СтрокаЗаявки
+						ИЗ
+							ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+						СГРУППИРОВАТЬ ПО
+							ВТОстаткиЗаявок.СтрокаЗаявки
+						ИМЕЮЩИЕ
+							СУММА(ВТОстаткиЗаявок.ОстатокПоЗаявке) &gt; 0)
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+{ГДЕ
+	ВТОстаткиЗаявок.Номенклатура.*,
+	ВТОстаткиЗаявок.Качество.*,
+	ВТОстаткиЗаявок.СтрокаЗаявки.*,
+	ВТОстаткиЗаявок.ТорговаяТочка.*,
+	ВТОстаткиЗаявок.ДоговорКонтрагента.*,
+	ВТОстаткиЗаявок.ОстатокПоЗаявке,
+	ВТОстаткиЗаявок.ОстатокПоЗаказу,
+	ВТОстаткиЗаявок.Заказ.*,
+	ВТОстаткиЗаявок.Заявка.*,
+	ВТОстаткиЗаявок.ПоследняяКорректировкаЗаказа.*,
+	ЗаказПоставщикуТовары.Комментарий,
+	ВТОстаткиЗаявок.СуммаОстатокПоЗаявке,
+	ВТОстаткиЗаявок.СуммаОстатокПоЗаказу,
+	ВТОстаткиЗаявок.МенеджерКлиентаПродажи.*,
+	ВТОстаткиЗаявок.Покупатель.*,
+	ВТОстаткиЗаявок.ДокументПоступление.*,
+	ВТОстаткиЗаявок.МенеджерКлиентаСнабжение.*,
+	ВТОстаткиЗаявок.Поставщик.*}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ВТОстаткиЗаявок.Номенклатура,
+	ВТОстаткиЗаявок.Качество,
+	ВТОстаткиЗаявок.СтрокаЗаявки,
+	ВТОстаткиЗаявок.ТорговаяТочка,
+	ВТОстаткиЗаявок.ДоговорКонтрагента,
+	ВТОстаткиЗаявок.ОстатокПоЗаявке,
+	ВТОстаткиЗаявок.ОстатокПоЗаказу,
+	ВТОстаткиЗаявок.Заказ,
+	ВТОстаткиЗаявок.Заявка,
+	ВТОстаткиЗаявок.ПоследняяКорректировкаЗаказа,
+	КорректировкаЗаказаПоставщикуТовары.Комментарий,
+	ВТОстаткиЗаявок.СуммаОстатокПоЗаявке,
+	ВТОстаткиЗаявок.СуммаОстатокПоЗаказу,
+	ВТОстаткиЗаявок.МенеджерКлиентаПродажи,
+	ВТОстаткиЗаявок.Покупатель,
+	ВТОстаткиЗаявок.ДокументПоступление,
+	ВТОстаткиЗаявок.МенеджерКлиентаСнабжение,
+	ВТОстаткиЗаявок.Поставщик
+ИЗ
+	ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.КорректировкаЗаказаПоставщику.Товары КАК КорректировкаЗаказаПоставщикуТовары
+		ПО ВТОстаткиЗаявок.ПоследняяКорректировкаЗаказа = КорректировкаЗаказаПоставщикуТовары.Ссылка
+			И ВТОстаткиЗаявок.СтрокаЗаявки = КорректировкаЗаказаПоставщикуТовары.СтрокаЗаявки
+ГДЕ
+	ВЫБОР
+			КОГДА &amp;БезМинусовыхЗаявок
+				ТОГДА ВТОстаткиЗаявок.СтрокаЗаявки В
+						(ВЫБРАТЬ
+							ВТОстаткиЗаявок.СтрокаЗаявки
+						ИЗ
+							ВТОстаткиЗаявок КАК ВТОстаткиЗаявок
+						СГРУППИРОВАТЬ ПО
+							ВТОстаткиЗаявок.СтрокаЗаявки
+						ИМЕЮЩИЕ
+							СУММА(ВТОстаткиЗаявок.ОстатокПоЗаявке) &gt; 0)
+			ИНАЧЕ ИСТИНА
+		КОНЕЦ
+;
+
+////////////////////////////////////////////////////////////////////////////////
+УНИЧТОЖИТЬ ВТОстаткиЗаявок
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВтОстаткиСКОмментарием.Номенклатура КАК Номенклатура,
+	ВтОстаткиСКОмментарием.Качество КАК Качество,
+	ВтОстаткиСКОмментарием.СтрокаЗаявки КАК СтрокаЗаявки,
+	ВтОстаткиСКОмментарием.ТорговаяТочка КАК ТорговаяТочка,
+	ВтОстаткиСКОмментарием.ДоговорКонтрагента КАК ДоговорКонтрагента,
+	ПоступлениеТоваровУслугАктПриемки.Ссылка КАК АктПримемки,
+	ВтОстаткиСКОмментарием.Заказ КАК Заказ,
+	ВтОстаткиСКОмментарием.Заявка КАК Заявка,
+	СУММА(ВтОстаткиСКОмментарием.ОстатокПоЗаявке) КАК ОстатокПоЗаявке,
+	СУММА(ВтОстаткиСКОмментарием.ОстатокПоЗаказу) КАК ОстатокПоЗаказу,
+	ДатыЗаказов.ДатаНачалаЗаказа КАК ДатаНачалаЗаказа,
+	ДатыЗаказов.ДатаКонцаЗаказа КАК ДатаКонцаЗаказа,
+	ВЫБОР
+		КОГДА ДатыЗаказов.ДатаКонцаЗаказа = ДатыЗаказов.ДатаНачалаЗаказа
+			ТОГДА 0
+		ИНАЧЕ РАЗНОСТЬДАТ(ДатыЗаказов.ДатаНачалаЗаказа, ДОБАВИТЬКДАТЕ(ДатыЗаказов.ДатаКонцаЗаказа, ДЕНЬ, 1), ДЕНЬ)
+	КОНЕЦ КАК ДниВРаботеЗаказа,
+	ВтОстаткиСКОмментарием.ДетальныйКомментарий КАК ДетальныйКомментарий,
+	СУММА(ВтОстаткиСКОмментарием.СуммаОстатокПоЗаявке) КАК СуммаОстатокПоЗаявке,
+	СУММА(ВтОстаткиСКОмментарием.СуммаОстатокПоЗаказу) КАК СуммаОстатокПоЗаказу,
+	МАКСИМУМ(ВтОстаткиСКОмментарием.ПоследняяКорректировкаЗаказа) КАК ПоследняяКорректировкаЗаказа,
+	МАКСИМУМ(ВтОстаткиСКОмментарием.МенеджерКлиентаПродажи) КАК МенеджерКлиентаПродажи,
+	ВтОстаткиСКОмментарием.Покупатель КАК Покупатель,
+	ВЫРАЗИТЬ(ВтОстаткиСКОмментарием.ПоследняяКорректировкаЗаказа.Комментарий КАК СТРОКА(1024)) КАК КомментарийЗаказа,
+	ВтОстаткиСКОмментарием.ДокументПоступление КАК ДокументПоступление,
+	ВтОстаткиСКОмментарием.МенеджерКлиентаСнабжение КАК МенеджерКлиентаСнабжение,
+	ВтОстаткиСКОмментарием.Поставщик КАК Поставщик,
+	ВтОстаткиСКОмментарием.Заказ.СтатусДокумента
+{ВЫБРАТЬ
+	Номенклатура.*,
+	Качество.*,
+	СтрокаЗаявки.*,
+	ТорговаяТочка.*,
+	ДоговорКонтрагента.*,
+	АктПримемки.*,
+	Заказ.*,
+	Заявка.*,
+	ОстатокПоЗаявке,
+	ОстатокПоЗаказу,
+	ДатаНачалаЗаказа,
+	ДатаКонцаЗаказа,
+	ДниВРаботеЗаказа,
+	ДетальныйКомментарий,
+	СуммаОстатокПоЗаявке,
+	СуммаОстатокПоЗаказу,
+	ПоследняяКорректировкаЗаказа.*,
+	МенеджерКлиентаПродажи.*,
+	Покупатель.*,
+	ДокументПоступление.*,
+	МенеджерКлиентаСнабжение.*,
+	КомментарийЗаказа,
+	Поставщик.*}
+ИЗ
+	ВтОстаткиСКОмментарием КАК ВтОстаткиСКОмментарием
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг.АктПриемки КАК ПоступлениеТоваровУслугАктПриемки
+		ПО ВтОстаткиСКОмментарием.Номенклатура = ПоступлениеТоваровУслугАктПриемки.Номенклатура
+			И ВтОстаткиСКОмментарием.ДокументПоступление = ПоступлениеТоваровУслугАктПриемки.Ссылка
+		ЛЕВОЕ СОЕДИНЕНИЕ ДатыЗаказов КАК ДатыЗаказов
+		ПО ВтОстаткиСКОмментарием.СтрокаЗаявки = ДатыЗаказов.СтрокаЗаявки
+{ГДЕ
+	ВтОстаткиСКОмментарием.Заказ.Менеджер.* КАК МенеджерЗаказа,
+	ВтОстаткиСКОмментарием.Заявка.Менеджер.* КАК МенеджерЗаявки,
+	ВтОстаткиСКОмментарием.Заказ.Контрагент.* КАК Поставщик,
+	ВтОстаткиСКОмментарием.Номенклатура.Изготовитель.* КАК Изготовитель,
+	ВтОстаткиСКОмментарием.Заявка.Контрагент.* КАК Покупатель,
+	ВтОстаткиСКОмментарием.ОстатокПоЗаявке,
+	ВтОстаткиСКОмментарием.ОстатокПоЗаказу,
+	ВтОстаткиСКОмментарием.МенеджерКлиентаПродажи.*,
+	ВтОстаткиСКОмментарием.ПоследняяКорректировкаЗаказа.*}
+
+СГРУППИРОВАТЬ ПО
+	ВтОстаткиСКОмментарием.Номенклатура,
+	ВтОстаткиСКОмментарием.Качество,
+	ВтОстаткиСКОмментарием.СтрокаЗаявки,
+	ВтОстаткиСКОмментарием.ТорговаяТочка,
+	ВтОстаткиСКОмментарием.ДоговорКонтрагента,
+	ПоступлениеТоваровУслугАктПриемки.Ссылка,
+	ВтОстаткиСКОмментарием.Заказ,
+	ВтОстаткиСКОмментарием.Заявка,
+	ДатыЗаказов.ДатаНачалаЗаказа,
+	ДатыЗаказов.ДатаКонцаЗаказа,
+	ВтОстаткиСКОмментарием.ДетальныйКомментарий,
+	ВтОстаткиСКОмментарием.Покупатель,
+	ВЫРАЗИТЬ(ВтОстаткиСКОмментарием.ПоследняяКорректировкаЗаказа.Комментарий КАК СТРОКА(1024)),
+	ВЫБОР
+		КОГДА ДатыЗаказов.ДатаКонцаЗаказа = ДатыЗаказов.ДатаНачалаЗаказа
+			ТОГДА 0
+		ИНАЧЕ РАЗНОСТЬДАТ(ДатыЗаказов.ДатаНачалаЗаказа, ДОБАВИТЬКДАТЕ(ДатыЗаказов.ДатаКонцаЗаказа, ДЕНЬ, 1), ДЕНЬ)
+	КОНЕЦ,
+	ВтОстаткиСКОмментарием.ДокументПоступление,
+	ВтОстаткиСКОмментарием.МенеджерКлиентаСнабжение,
+	ВтОстаткиСКОмментарием.Поставщик,
+	ВтОстаткиСКОмментарием.Заказ.СтатусДокумента
+
+ИМЕЮЩИЕ
+	(СУММА(ВтОстаткиСКОмментарием.ОстатокПоЗаявке) &lt;&gt; 0
+		ИЛИ СУММА(ВтОстаткиСКОмментарием.ОстатокПоЗаказу) &lt;&gt; 0)</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<calculatedField>
+		<dataPath>СтатусЗаказа</dataPath>
+		<expression>Заказ.СтатусДокумента</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Статус заказа</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ОстатокПоЗаказу</dataPath>
+		<expression>Сумма(ОстатокПоЗаказу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ОстатокПоЗаявке</dataPath>
+		<expression>Сумма(ОстатокПоЗаявке)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаОстатокПоЗаказу</dataPath>
+		<expression>Сумма(СуммаОстатокПоЗаказу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаОстатокПоЗаявке</dataPath>
+		<expression>Сумма(СуммаОстатокПоЗаявке)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СтатусЗаказа</dataPath>
+		<expression>Выбор  когда Сумма(ОстатокПоЗаказу)&lt;=0 тогда Значение(Справочник.СтатусыДокументов.ЗаказПоставщикуЗакрыт) иначе  СтатусЗаказа конец</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<expression>ТекущаяДата()</expression>
+	</parameter>
+	<parameter>
+		<name>БезМинусовыхЗаявок</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Без минусовых заявок</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:boolean</v8:Type>
+		</valueType>
+		<value xsi:type="xs:boolean">false</value>
+		<useRestriction>false</useRestriction>
+		<expression>ложь</expression>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Основной</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка.Дата</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата заявки</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура.Артикул</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Артикул</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрокаЗаявки</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>SSID</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтатусЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>Заказ.СтатусДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>СтатусЗаказа</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДетальныйКомментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КомментарийЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступление</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АктПримемки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступление.СтатусДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Статус поступления</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>d4600e34-d696-4d84-941d-f3536dff11cc</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Изготовитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Покупатель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>d1d78974-7b7c-4269-9c2b-783cfec7993e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерКлиентаСнабжение</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>6942c766-2bf1-41f6-af3e-b4b288ae499e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>2f4e5a59-481f-4377-a6da-37beb33e2f19</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>a73ba260-cdc7-422b-ad86-6d97e5b32209</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>БезМинусовыхЗаявок</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					<dcsset:userSettingID>6603129b-acd0-4cc9-b5ca-282db25356eb</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ДатаНачалаЗаказа</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>50547128-db6b-4141-b9c0-2f48f075ef6c</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>2d20bc75-2d98-4d36-baa7-0c331a518c0a</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Поставщик</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Заказ</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:filter>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>e2e2d7d2-6fcc-4eae-b809-452b199e0be9</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ОУТЗ</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>ОУТЗ</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Поставщик</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка.Дата</dcsset:field>
+					<dcsset:title>Дата заявки</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Номенклатура.Артикул</dcsset:field>
+					<dcsset:title>Артикул</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:field>СтрокаЗаявки</dcsset:field>
+					<dcsset:title>SSID</dcsset:title>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрокаЗаявки.СостояниеЗаявки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Покупатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Заказ.СтатусДокумента</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>СтатусЗаказа</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаОстатокПоЗаказу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КомментарийЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДетальныйКомментарий</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДниВРаботеЗаказа</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступление</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>АктПримемки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДокументПоступление.СтатусДокумента</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Статус Поступления</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>d4600e34-d696-4d84-941d-f3536dff11cc</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаказа</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">МенеджерЗаявки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Изготовитель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Покупатель</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Поставщик</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>22d35cf2-9f1d-46e0-bde3-4ec0b3d9b7fb</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemGroup">
+					<dcsset:groupType>OrGroup</dcsset:groupType>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстатокПоЗаявке</dcsset:left>
+						<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:FilterItemComparison">
+						<dcsset:left xsi:type="dcscor:Field">ОстатокПоЗаказу</dcsset:left>
+						<dcsset:comparisonType>GreaterOrEqual</dcsset:comparisonType>
+						<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>2f4e5a59-481f-4377-a6da-37beb33e2f19</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>a73ba260-cdc7-422b-ad86-6d97e5b32209</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Заказ</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>50547128-db6b-4141-b9c0-2f48f075ef6c</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection/>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>2d20bc75-2d98-4d36-baa7-0c331a518c0a</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеРеквизитов</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionAttributesPlacement">Separately</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Поставщик</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Заказ.СтатусДокумента</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Заказ</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:filter>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:selection>
+						<dcsset:conditionalAppearance>
+							<dcsset:viewMode>Normal</dcsset:viewMode>
+						</dcsset:conditionalAppearance>
+						<dcsset:viewMode>Normal</dcsset:viewMode>
+						<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>e2e2d7d2-6fcc-4eae-b809-452b199e0be9</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ДеревоЗаявок</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дерево Заявок</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заявка</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрокаЗаявки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаказу</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ОстатокПоЗаявке</dcsset:field>
+				</dcsset:item>
+				<dcsset:userSettingID>25980859-1158-4730-b0b4-5e8a72152265</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Заявка</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>0ed9f7a8-aa56-4ad9-a490-aeadc1f3397e</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СтрокаЗаявки</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">СуммаОстатокПоЗаявке</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="xs:decimal">0</dcsset:right>
+				</dcsset:item>
+				<dcsset:userSettingID>ef31bbfe-20d8-4b83-a6cb-55e244f6789e</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:userSettingID>d1bcbefd-f5ce-436f-a974-1ce4621360ec</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:userSettingID>f5ea53f8-459c-4475-9d16-ae81fb51ee1f</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">End</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:name>Документ</dcsset:name>
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Заявка</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтрокаЗаявки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsUserSettingID>12446177-2964-4fae-847e-98c3deefa771</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ДеревоЗаказов</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дерево Заказов</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Заказ</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Документ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтрокаЗаявки</dcsset:field>
+				</dcsset:item>
+				<dcsset:userSettingID>0fc3351c-45fe-4f42-97aa-0123a7a00ba7</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:userSettingID>a165bbde-fb85-4126-b79d-2ce59b79cf94</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:order>
+				<dcsset:userSettingID>416e626c-5437-43d0-a8c1-c9158a6bc554</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:userSettingID>4e710f9b-c8a7-4176-b82d-7980f9a42d75</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Begin</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Заказ</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>СтрокаЗаявки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+			<dcsset:itemsUserSettingID>9ca9fbf2-abcb-409e-8365-04d2c82c3e32</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

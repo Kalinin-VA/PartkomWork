@@ -1,0 +1,15 @@
+-[”даление повтор€ющихс€ строк]
+with
+cte (part_id, f_provider_id, f_input_price, f_id) as
+(select part_id, f_provider_id, f_input_price, min(f_id) f_id --, count(*) Qty
+from PARTKOM_Utils.dbo.sklad_DROP
+group by
+part_id, f_provider_id, f_input_price
+having count(*) > 1)
+--select *
+delete t1
+from PARTKOM_Utils.dbo.sklad_DROP as t1
+inner join cte as t2 on
+t1.part_id = t2.part_id and t1.f_provider_id = t2.f_provider_id and t1.f_input_price = t2.f_input_price
+where
+t1.f_id not in ( select f_id from cte )

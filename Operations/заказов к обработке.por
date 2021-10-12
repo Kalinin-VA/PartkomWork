@@ -1,0 +1,283 @@
+﻿<Structure xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Property name="МноготабличнаяВыборка">
+		<Value xsi:type="xs:boolean">false</Value>
+	</Property>
+	<Property name="ДинамическаяВыборка">
+		<Value xsi:type="xs:boolean">false</Value>
+	</Property>
+	<Property name="ОбластьПоиска">
+		<Value xsi:type="xs:string">Документ.ЗаказПоставщику</Value>
+	</Property>
+	<Property name="БезАвтоупорядочивания">
+		<Value xsi:type="xs:boolean">true</Value>
+	</Property>
+	<Property name="НайденныеОбъекты">
+		<Value xsi:type="ValueTable">
+			<column>
+				<Name xsi:type="xs:string">_ПометкаСлужебная</Name>
+				<ValueType>
+					<Type>xs:boolean</Type>
+				</ValueType>
+			</column>
+			<column>
+				<Name xsi:type="xs:string">Ссылка</Name>
+				<ValueType>
+					<Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:DocumentRef.ЗаказПоставщику</Type>
+				</ValueType>
+			</column>
+			<column>
+				<Name xsi:type="xs:string">_РезультатОбработки</Name>
+				<ValueType>
+					<Type>xs:string</Type>
+					<StringQualifiers>
+						<Length>0</Length>
+						<AllowedLength>Variable</AllowedLength>
+					</StringQualifiers>
+				</ValueType>
+			</column>
+			<row>
+				<Value>true</Value>
+				<Value>68c4e24d-ab7a-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>6a22c271-b5d3-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>6a22c274-b5d3-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>edb93b23-af72-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>0050cbae-b599-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>fdced8d4-b686-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>210080ab-b67b-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>2b7383a9-af5f-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadc7-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>4cd04381-af62-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>6a22c273-b5d3-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>4013477f-a207-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadc6-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>e39185e0-b5ba-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>0050cbaa-b599-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>bf2ff541-b5cc-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>68c4e250-ab7a-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadc5-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>68c4e24f-ab7a-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadc2-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>4b489740-b686-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>051dbe70-b5bd-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>f677b1c7-a9de-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>6a22c26f-b5d3-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>dfcef0c7-a46b-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>051dbe6d-b5bd-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>68c4e24e-ab7a-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>266505d7-b2a0-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadc4-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>1450ce70-b588-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>e4b12ec8-af61-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>00f1bb13-a216-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>cacf1783-a760-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>fdced8d5-b686-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>051dbe6f-b5bd-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>1bf34107-b5c6-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>6a22c270-b5d3-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadbb-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>4b48973e-b686-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>ca178806-b101-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>623dadc3-b5cb-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>21008084-b67b-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+			<row>
+				<Value>true</Value>
+				<Value>ff51fe4a-b67f-11e8-80fb-005056817b9c</Value>
+				<Value/>
+			</row>
+		</Value>
+	</Property>
+	<Property name="НастройкиТекущейТаблицы">
+		<Value xsi:type="Structure">
+			<Property name="НастройкаКомпоновки">
+				<Value xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows" xsi:type="dcsset:Settings">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Ссылка</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</Value>
+			</Property>
+			<Property name="ИменаПолейБитыхСсылок">
+				<Value xsi:type="Array"/>
+			</Property>
+			<Property name="СтрокаПоиска">
+				<Value xsi:type="xs:string"/>
+			</Property>
+		</Value>
+	</Property>
+</Structure>

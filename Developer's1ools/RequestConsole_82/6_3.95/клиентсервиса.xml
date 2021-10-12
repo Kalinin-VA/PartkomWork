@@ -1,0 +1,2087 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТипыСервисногоОбслуживания</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипыСервисногоОбслуживания.КодУпр</dataPath>
+			<field>КодУпр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код упр</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТипыСервисногоОбслуживания.ТипСервисногоОбслуживания</dataPath>
+			<field>ТипСервисногоОбслуживания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Тип сервисного обслуживания</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<inputParameters/>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	1 КАК КодУпр,
+	"Г" КАК ТипСервисногоОбслуживания
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	3,
+	"ТР"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	6,
+	"B&amp;P"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	7,
+	"B&amp;P"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	14,
+	"ТО"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	15,
+	"ТО"
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	19,
+	"Г"</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>АдресаЭлектроннойПочты</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.АдресаЭлектроннойПочты.АдресЭлектроннойПочты</dataPath>
+			<field>АдресЭлектроннойПочты</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес электронной почты</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.АдресаЭлектроннойПочты.Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Вид</dataPath>
+			<field>Вид</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тип</dataPath>
+			<field>Тип</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КонтактнаяИнформацияСрезПоследних.Объект КАК Контрагент,
+	ВЫБОР
+		КОГДА ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 18) = "E-mail отсутствует"
+			ТОГДА ""
+		ИНАЧЕ ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000)
+	КОНЕЦ КАК АдресЭлектроннойПочты,
+	1 КАК Приоритет
+ПОМЕСТИТЬ ВТ_АДРЕСА_ЭЛПОЧТЫ
+ИЗ
+	РегистрСведений.КонтактнаяИнформация.СрезПоследних(, ) КАК КонтактнаяИнформацияСрезПоследних
+ГДЕ
+	КонтактнаяИнформацияСрезПоследних.Объект ССЫЛКА Справочник.Контрагенты
+	И КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресЭлектроннойПочтыДомашний)
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ
+	КонтактнаяИнформацияСрезПоследних.Объект,
+	ВЫБОР
+		КОГДА ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 18) = "E-mail отсутствует"
+			ТОГДА ""
+		ИНАЧЕ ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000)
+	КОНЕЦ,
+	0
+ИЗ
+	РегистрСведений.КонтактнаяИнформация.СрезПоследних(, ) КАК КонтактнаяИнформацияСрезПоследних
+ГДЕ
+	КонтактнаяИнформацияСрезПоследних.Объект ССЫЛКА Справочник.Контрагенты
+	И КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресЭлектроннойПочтыРабочий)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АДРЕСА_ЭЛПОЧТЫ.Контрагент КАК Контрагент,
+	МАКСИМУМ(ВТ_АДРЕСА_ЭЛПОЧТЫ.Приоритет) КАК Приоритет
+ПОМЕСТИТЬ ВТ_МАКС_ПРИОРИТЕТ
+ИЗ
+	ВТ_АДРЕСА_ЭЛПОЧТЫ КАК ВТ_АДРЕСА_ЭЛПОЧТЫ
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АДРЕСА_ЭЛПОЧТЫ.Контрагент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АДРЕСА_ЭЛПОЧТЫ.Контрагент КАК Контрагент,
+	ВТ_АДРЕСА_ЭЛПОЧТЫ.АдресЭлектроннойПочты КАК АдресЭлектроннойПочты
+ИЗ
+	ВТ_АДРЕСА_ЭЛПОЧТЫ КАК ВТ_АДРЕСА_ЭЛПОЧТЫ
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_МАКС_ПРИОРИТЕТ КАК ВТ_МАКС_ПРИОРИТЕТ
+		ПО ВТ_АДРЕСА_ЭЛПОЧТЫ.Контрагент = ВТ_МАКС_ПРИОРИТЕТ.Контрагент
+			И ВТ_АДРЕСА_ЭЛПОЧТЫ.Приоритет = ВТ_МАКС_ПРИОРИТЕТ.Приоритет</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Автомобили</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль.VIN</dataPath>
+			<field>VIN</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>VIN-код</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль.Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автомобиль</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Автомобиль.Модель</dataPath>
+			<field>Модель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Модель</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">25</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Автомобили.Ссылка КАК Автомобиль,
+	Автомобили.VIN КАК VIN,
+	Автомобили.Модель КАК Модель
+ИЗ
+	Справочник.Автомобили КАК Автомобили
+</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СогласиеНаОбработкуПД</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СогласиеНаОбработкуПД.ДатаОкончанияДействия</dataPath>
+			<field>ДатаОкончанияДействия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата окончания действия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СогласиеНаОбработкуПД.Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СогласиеНаОбработкуПД.ДатаНачалаДействия</dataPath>
+			<field>ДатаНачалаДействия</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата начала действия</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СогласиеНаОбработкуПДСрезПоследних.Контрагент КАК Контрагент,
+	СогласиеНаОбработкуПДСрезПоследних.ДатаНачалаДействия КАК ДатаНачалаДействия,
+	СогласиеНаОбработкуПДСрезПоследних.ДатаОкончанияДействия КАК ДатаОкончанияДействия
+ИЗ
+	РегистрСведений.СогласиеНаОбработкуПД.СрезПоследних КАК СогласиеНаОбработкуПДСрезПоследних</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Контрагенты</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.ФормаСобственности</dataPath>
+			<field>ФормаСобственности</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Форма собственности</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.КонтрагентНаименованиеПолное</dataPath>
+			<field>НаименованиеПолное</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Полное наименование</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.Пол</dataPath>
+			<field>Пол</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пол</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.КонтрагентСсылка</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.СогласиеНаОбработкуПерсональныхДанных</dataPath>
+			<field>СогласиеНаОбработкуПерсональныхДанных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Согласие на обработку персональных данных получено</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.ДатаРождения</dataPath>
+			<field>ДатаРождения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата рождения клиента (если информация доступна)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='dd.MM.yyyy'</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.ФизическоеЛицо</dataPath>
+			<field>ФизическоеЛицо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Физическое лицо</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.ОтчествоКлиента</dataPath>
+			<field>ОтчествоКлиента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отчество клиента</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ВЫБОР КОГДА Контрагенты.ФизическоеЛицо = "Да" Тогда ФункцииДляКомпановкиДанных.ПолучитьФИО(Контрагенты.КонтрагентНаименованиеПолное, "Отчество") ИНАЧЕ "" КОНЕЦ</presentationExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.ИмяКлиента</dataPath>
+			<field>ИмяКлиента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Имя клиента</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ВЫБОР КОГДА Контрагенты.ФизическоеЛицо = "Да" Тогда ФункцииДляКомпановкиДанных.ПолучитьФИО(Контрагенты.КонтрагентНаименованиеПолное, "Имя") ИНАЧЕ "" КОНЕЦ</presentationExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагенты.ФамилияКлиента</dataPath>
+			<field>ФамилияКлиента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Фамилия клиента</v8:content>
+				</v8:item>
+			</title>
+			<presentationExpression>ВЫБОР КОГДА Контрагенты.ФизическоеЛицо = "Да" Тогда ФункцииДляКомпановкиДанных.ПолучитьФИО(Контрагенты.КонтрагентНаименованиеПолное, "Фамилия") ИНАЧЕ Контрагенты.КонтрагентНаименованиеПолное КОНЕЦ</presentationExpression>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Контрагенты.Ссылка КАК Контрагент,
+	Контрагенты.НаименованиеПолное КАК НаименованиеПолное,
+	Контрагенты.ФормаСобственности КАК ФормаСобственности,
+	ВЫБОР
+		КОГДА Контрагенты.ФормаСобственности = ЗНАЧЕНИЕ(Перечисление.ФормыСобственности.ЧастноеЛицо)
+			ТОГДА "Да"
+		ИНАЧЕ ""
+	КОНЕЦ КАК ФизическоеЛицо,
+	Контрагенты.СогласиеНаОбработкуПерсональныхДанных КАК СогласиеНаОбработкуПерсональныхДанных,
+	Контрагенты.Пол КАК Пол,
+	Контрагенты.ДатаРождения КАК ДатаРождения,
+	"" КАК ФамилияКлиента,
+	"" КАК ИмяКлиента,
+	"" КАК ОтчествоКлиента
+ИЗ
+	Справочник.Контрагенты КАК Контрагенты</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ЗаказыПокупателейОстатки</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.СкладКомпании</dataPath>
+			<field>СкладКомпании</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад компании</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.Заказ</dataPath>
+			<field>Заказ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.ХарактеристикаНоменклатуры</dataPath>
+			<field>ХарактеристикаНоменклатуры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Характеристика номенклатуры</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.РезервОстаток</dataPath>
+			<field>РезервОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Резерв Остаток</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказыПокупателейОстатки.ЗаказаноОстаток</dataPath>
+			<field>ЗаказаноОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказано Остаток</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ЗаказыПокупателейОстатки.Контрагент КАК Контрагент,
+	ЗаказыПокупателейОстатки.ЗаказаноОстаток КАК ЗаказаноОстаток,
+	ЗаказыПокупателейОстатки.РезервОстаток КАК РезервОстаток
+ИЗ
+	РегистрНакопления.ЗаказыПокупателей.Остатки КАК ЗаказыПокупателейОстатки</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Обзвоны</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.Обзвон</dataPath>
+			<field>Обзвон</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обзвоны.Обзвон</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.ДокументОснование</dataPath>
+			<field>ДокументОснование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ основание</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.Удовлетворенность</dataPath>
+			<field>Удовлетворенность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Удовлетворенность</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.ВариантОтвета</dataPath>
+			<field>ВариантОтвета</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.Вопрос</dataPath>
+			<field>Вопрос</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вопрос</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.ВопросНомерВАнкете</dataPath>
+			<field>ВопросНомерВАнкете</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номер в анкете</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Обзвоны.Комментарий</dataPath>
+			<field>Комментарий</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Комментарий</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Обзвон.Ссылка КАК Обзвон,
+	Обзвон.Удовлетворенность КАК Удовлетворенность,
+	Обзвон.ДокументОснование КАК ДокументОснование,
+	Обзвон.РезультатРешения КАК Комментарий,
+	ОбзвонВопросы.Вопрос КАК Вопрос,
+	ОбзвонВопросы.ВариантОтвета КАК ВариантОтвета,
+	ОбзвонВопросы.Вопрос.НомерВАнкете КАК ВопросНомерВАнкете
+ИЗ
+	Документ.Обзвон КАК Обзвон
+		ЛЕВОЕ СОЕДИНЕНИЕ Документ.Обзвон.Вопросы КАК ОбзвонВопросы
+		ПО (ОбзвонВопросы.Ссылка = Обзвон.Ссылка)</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ЗаказНаряды</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.Номер</dataPath>
+			<field>Номер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>№ заказ-наряда</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма по заказ-наряду</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.ВидРемонта</dataPath>
+			<field>ВидРемонта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид ремонта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.Заказчик</dataPath>
+			<field>Заказчик</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказчик</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автомобиль</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.Организация</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.ЗаказНаряд</dataPath>
+			<field>ЗаказНаряд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Заказ наряд</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.ВидРемонтаКодУпр</dataPath>
+			<field>ВидРемонтаКодУпр</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид ремонтаКод упр.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.НазваниеДилера</dataPath>
+			<field>НазваниеДилера</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Название дилера</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">30</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаказНаряд.ДатаОбслуживанияАвтомобиля</dataPath>
+			<field>ДатаОбслуживанияАвтомобиля</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата обслуживания автомобиля</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='dd.MM.yyyy'</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ЗаказНаряд.Ссылка КАК ЗаказНаряд,
+	ЗаказНаряд.Дата КАК ДатаОбслуживанияАвтомобиля,
+	ЗаказНаряд.Номер КАК Номер,
+	ЗаказНаряд.Организация КАК Организация,
+	ЗаказНаряд.Организация.НаименованиеПолное КАК НазваниеДилера,
+	ЗаказНаряд.СуммаДокумента КАК СуммаДокумента,
+	ЗаказНаряд.ВидРемонта КАК ВидРемонта,
+	ЗаказНаряд.ВидРемонта.КодУпр КАК ВидРемонтаКодУпр,
+	ЗаказНаряд.Автомобиль КАК Автомобиль,
+	ЗаказНаряд.Заказчик КАК Заказчик
+ИЗ
+	Документ.ЗаказНаряд КАК ЗаказНаряд
+ГДЕ
+	ЗаказНаряд.Проведен
+	И ЗаказНаряд.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>АдресаКонтрагентов</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Город</dataPath>
+			<field>Город</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Город</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Индекс</dataPath>
+			<field>Индекс</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Индекс</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.АдресКлиента</dataPath>
+			<field>АдресКлиента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес клиента</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Вид</dataPath>
+			<field>Вид</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тип</dataPath>
+			<field>Тип</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КонтактнаяИнформацияСрезПоследних.Объект КАК Контрагент,
+	КонтактнаяИнформацияСрезПоследних.Поле1 КАК Индекс,
+	ВЫБОР
+		КОГДА КонтактнаяИнформацияСрезПоследних.Поле4 = ""
+			ТОГДА КонтактнаяИнформацияСрезПоследних.Поле5
+		ИНАЧЕ КонтактнаяИнформацияСрезПоследних.Поле4
+	КОНЕЦ КАК Город,
+	ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000) КАК Адрес,
+	1 КАК Приоритет
+ПОМЕСТИТЬ ВТ_АДРЕСА
+ИЗ
+	РегистрСведений.КонтактнаяИнформация.СрезПоследних(, ) КАК КонтактнаяИнформацияСрезПоследних
+ГДЕ
+	КонтактнаяИнформацияСрезПоследних.Объект ССЫЛКА Справочник.Контрагенты
+	И КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресФактический)
+	И КонтактнаяИнформацияСрезПоследних.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Адрес)
+	И ВЫРАЗИТЬ(КонтактнаяИнформацияСрезПоследних.Объект КАК Справочник.Контрагенты).ФормаСобственности = ЗНАЧЕНИЕ(Перечисление.ФормыСобственности.ЧастноеЛицо)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КонтактнаяИнформацияСрезПоследних.Объект,
+	КонтактнаяИнформацияСрезПоследних.Поле1,
+	ВЫБОР
+		КОГДА КонтактнаяИнформацияСрезПоследних.Поле4 = ""
+			ТОГДА КонтактнаяИнформацияСрезПоследних.Поле5
+		ИНАЧЕ КонтактнаяИнформацияСрезПоследних.Поле4
+	КОНЕЦ,
+	ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000),
+	0
+ИЗ
+	РегистрСведений.КонтактнаяИнформация.СрезПоследних(, ) КАК КонтактнаяИнформацияСрезПоследних
+ГДЕ
+	КонтактнаяИнформацияСрезПоследних.Объект ССЫЛКА Справочник.Контрагенты
+	И КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресЮридический)
+	И КонтактнаяИнформацияСрезПоследних.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Адрес)
+	И ВЫРАЗИТЬ(КонтактнаяИнформацияСрезПоследних.Объект КАК Справочник.Контрагенты).ФормаСобственности = ЗНАЧЕНИЕ(Перечисление.ФормыСобственности.ЧастноеЛицо)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	КонтактнаяИнформацияСрезПоследних.Объект,
+	КонтактнаяИнформацияСрезПоследних.Поле1,
+	ВЫБОР
+		КОГДА КонтактнаяИнформацияСрезПоследних.Поле4 = ""
+			ТОГДА КонтактнаяИнформацияСрезПоследних.Поле5
+		ИНАЧЕ КонтактнаяИнформацияСрезПоследних.Поле4
+	КОНЕЦ,
+	ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000),
+	1
+ИЗ
+	РегистрСведений.КонтактнаяИнформация.СрезПоследних(, ) КАК КонтактнаяИнформацияСрезПоследних
+ГДЕ
+	КонтактнаяИнформацияСрезПоследних.Объект ССЫЛКА Справочник.Контрагенты
+	И КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресЮридический)
+	И КонтактнаяИнформацияСрезПоследних.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Адрес)
+	И НЕ ВЫРАЗИТЬ(КонтактнаяИнформацияСрезПоследних.Объект КАК Справочник.Контрагенты).ФормаСобственности = ЗНАЧЕНИЕ(Перечисление.ФормыСобственности.ЧастноеЛицо)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АДРЕСА.Контрагент КАК Контрагент,
+	МАКСИМУМ(ВТ_АДРЕСА.Приоритет) КАК Приоритет
+ПОМЕСТИТЬ ВТ_МАКС_ПРИОРИТЕТ
+ИЗ
+	ВТ_АДРЕСА КАК ВТ_АДРЕСА
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АДРЕСА.Контрагент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АДРЕСА.Контрагент КАК Контрагент,
+	ВТ_АДРЕСА.Индекс КАК Индекс,
+	ВТ_АДРЕСА.Город КАК Город,
+	ВТ_АДРЕСА.Адрес КАК АдресКлиента
+ИЗ
+	ВТ_АДРЕСА КАК ВТ_АДРЕСА
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_МАКС_ПРИОРИТЕТ КАК ВТ_МАКС_ПРИОРИТЕТ
+		ПО ВТ_АДРЕСА.Контрагент = ВТ_МАКС_ПРИОРИТЕТ.Контрагент
+			И ВТ_АДРЕСА.Приоритет = ВТ_МАКС_ПРИОРИТЕТ.Приоритет</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТелефоныКонтрагентов</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.Контрагент</dataPath>
+			<field>Контрагент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Контрагент</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов2</dataPath>
+			<field>ТелефонДляКонтактов2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Телефон для контактов2</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">11</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов</dataPath>
+			<field>ТелефонДляКонтактов</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Телефон для контактов</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Вид</dataPath>
+			<field>Вид</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тип</dataPath>
+			<field>Тип</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КонтактнаяИнформацияСрезПоследних.Объект КАК Контрагент,
+	ВЫБОР
+		КОГДА ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 2) ПОДОБНО "+7"
+			ТОГДА ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 3, 1000)
+		ИНАЧЕ ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000)
+	КОНЕЦ КАК ТелефонДляКонтактов,
+	"" КАК ТелефонДляКонтактов2,
+	МАКСИМУМ(КонтактнаяИнформацияСрезПоследних.Вид) КАК Вид
+ИЗ
+	РегистрСведений.КонтактнаяИнформация.СрезПоследних КАК КонтактнаяИнформацияСрезПоследних
+ГДЕ
+	КонтактнаяИнформацияСрезПоследних.Объект ССЫЛКА Справочник.Контрагенты
+	И (КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.ТелефонКонтактный)
+			ИЛИ КонтактнаяИнформацияСрезПоследних.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.ТелефонСотовый))
+
+СГРУППИРОВАТЬ ПО
+	КонтактнаяИнформацияСрезПоследних.Объект,
+	ВЫБОР
+		КОГДА ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 2) ПОДОБНО "+7"
+			ТОГДА ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 3, 1000)
+		ИНАЧЕ ПОДСТРОКА(КонтактнаяИнформацияСрезПоследних.Представление, 1, 1000)
+	КОНЕЦ</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СведенияОбАвтомобиле</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СведенияОбАвтомобиле.ГосНомер</dataPath>
+			<field>ГосНомер</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Регистрационный номер (если есть)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">10</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СведенияОбАвтомобиле.Пробег</dataPath>
+			<field>Пробег</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пробег (км)</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Размещение</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СведенияОбАвтомобиле.Дата</dataPath>
+			<field>Дата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СведенияОбАвтомобиле.Автомобиль</dataPath>
+			<field>Автомобиль</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Автомобиль</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	0 КАК Цифры
+ПОМЕСТИТЬ ВТ_ЦИФРЫ
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	1
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	2
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	3
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	4
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	5
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	6
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	7
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	8
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	9
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	НАЧАЛОПЕРИОДА(ДОБАВИТЬКДАТЕ(&amp;ДатаНачала, ДЕНЬ, ВТ_ЦИФРЫ2.Цифры * 100 + ВТ_ЦИФРЫ1.Цифры * 10 + ВТ_ЦИФРЫ.Цифры), ДЕНЬ) КАК Дата
+ПОМЕСТИТЬ ВТ_ДАТЫ
+ИЗ
+	ВТ_ЦИФРЫ КАК ВТ_ЦИФРЫ2
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЦИФРЫ КАК ВТ_ЦИФРЫ1
+			ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЦИФРЫ КАК ВТ_ЦИФРЫ
+			ПО (ИСТИНА)
+		ПО (ИСТИНА)
+ГДЕ
+	КОНЕЦПЕРИОДА(ДОБАВИТЬКДАТЕ(&amp;ДатаНачала, ДЕНЬ, ВТ_ЦИФРЫ2.Цифры * 100 + ВТ_ЦИФРЫ1.Цифры * 100 + ВТ_ЦИФРЫ.Цифры), ДЕНЬ) &lt;= КОНЕЦПЕРИОДА(&amp;ДатаОкончания, ДЕНЬ)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Автомобили.Ссылка КАК Ссылка,
+	ВТ_ДАТЫ.Дата КАК Дата
+ПОМЕСТИТЬ ВТ_АВТО_ДАТЫ
+ИЗ
+	ВТ_ДАТЫ КАК ВТ_ДАТЫ
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Справочник.Автомобили КАК Автомобили
+		ПО (ИСТИНА)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Автомобили.Период КАК Период,
+	Автомобили.Автомобиль КАК Автомобиль,
+	Автомобили.Значение КАК Пробег
+ПОМЕСТИТЬ ВТ_АВТО_ПРОБЕГ
+ИЗ
+	РегистрСведений.Автомобили КАК Автомобили
+ГДЕ
+	Автомобили.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.Пробег)
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль,
+	Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Автомобили.Период КАК Период,
+	Автомобили.Автомобиль КАК Автомобиль,
+	Автомобили.Значение КАК ГосНомер
+ПОМЕСТИТЬ ВТ_АВТО_ГОСНОМЕР
+ИЗ
+	РегистрСведений.Автомобили КАК Автомобили
+ГДЕ
+	Автомобили.ВидЗначения = ЗНАЧЕНИЕ(Перечисление.ДополнительнаяИнформацияАвтомобилей.ГосНомер)
+
+ИНДЕКСИРОВАТЬ ПО
+	Автомобиль,
+	Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АВТО_ДАТЫ.Ссылка КАК Ссылка,
+	ВТ_АВТО_ДАТЫ.Дата КАК Дата,
+	МАКСИМУМ(ВТ_АВТО_ПРОБЕГ.Период) КАК Период
+ПОМЕСТИТЬ ВТ_ПЕРИОД_ПРОБЕГА
+ИЗ
+	ВТ_АВТО_ДАТЫ КАК ВТ_АВТО_ДАТЫ
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АВТО_ПРОБЕГ КАК ВТ_АВТО_ПРОБЕГ
+		ПО ВТ_АВТО_ДАТЫ.Ссылка = ВТ_АВТО_ПРОБЕГ.Автомобиль
+			И (ДОБАВИТЬКДАТЕ(ВТ_АВТО_ДАТЫ.Дата, ДЕНЬ, 30) &gt;= ВТ_АВТО_ПРОБЕГ.Период)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АВТО_ДАТЫ.Ссылка,
+	ВТ_АВТО_ДАТЫ.Дата
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АВТО_ДАТЫ.Ссылка КАК Ссылка,
+	ВТ_АВТО_ДАТЫ.Дата КАК Дата,
+	МАКСИМУМ(ВТ_АВТО_ГОСНОМЕР.Период) КАК Период
+ПОМЕСТИТЬ ВТ_ПЕРИОД_ГОСНОМЕРА
+ИЗ
+	ВТ_АВТО_ДАТЫ КАК ВТ_АВТО_ДАТЫ
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АВТО_ГОСНОМЕР КАК ВТ_АВТО_ГОСНОМЕР
+		ПО ВТ_АВТО_ДАТЫ.Ссылка = ВТ_АВТО_ГОСНОМЕР.Автомобиль
+			И (ДОБАВИТЬКДАТЕ(ВТ_АВТО_ДАТЫ.Дата, ДЕНЬ, 30) &gt;= ВТ_АВТО_ГОСНОМЕР.Период)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АВТО_ДАТЫ.Ссылка,
+	ВТ_АВТО_ДАТЫ.Дата
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПЕРИОД_ПРОБЕГА.Ссылка КАК Ссылка,
+	ВТ_ПЕРИОД_ПРОБЕГА.Дата КАК Дата,
+	ВТ_АВТО_ПРОБЕГ.Пробег КАК Пробег
+ПОМЕСТИТЬ ВТ_ПРОБЕГ
+ИЗ
+	ВТ_ПЕРИОД_ПРОБЕГА КАК ВТ_ПЕРИОД_ПРОБЕГА
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АВТО_ПРОБЕГ КАК ВТ_АВТО_ПРОБЕГ
+		ПО ВТ_ПЕРИОД_ПРОБЕГА.Ссылка = ВТ_АВТО_ПРОБЕГ.Автомобиль
+			И ВТ_ПЕРИОД_ПРОБЕГА.Период = ВТ_АВТО_ПРОБЕГ.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ПЕРИОД_ГОСНОМЕРА.Ссылка КАК Ссылка,
+	ВТ_ПЕРИОД_ГОСНОМЕРА.Дата КАК Дата,
+	ВТ_АВТО_ГОСНОМЕР.ГосНомер КАК ГосНомер
+ПОМЕСТИТЬ ВТ_ГОСНОМЕР
+ИЗ
+	ВТ_ПЕРИОД_ГОСНОМЕРА КАК ВТ_ПЕРИОД_ГОСНОМЕРА
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_АВТО_ГОСНОМЕР КАК ВТ_АВТО_ГОСНОМЕР
+		ПО ВТ_ПЕРИОД_ГОСНОМЕРА.Ссылка = ВТ_АВТО_ГОСНОМЕР.Автомобиль
+			И ВТ_ПЕРИОД_ГОСНОМЕРА.Период = ВТ_АВТО_ГОСНОМЕР.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_АВТО_ДАТЫ.Ссылка КАК Автомобиль,
+	МАКСИМУМ(ВТ_АВТО_ДАТЫ.Дата) КАК Дата,
+	МАКСИМУМ(ВТ_ПРОБЕГ.Пробег) КАК Пробег,
+	МАКСИМУМ(ВТ_ГОСНОМЕР.ГосНомер) КАК ГосНомер
+ИЗ
+	ВТ_АВТО_ДАТЫ КАК ВТ_АВТО_ДАТЫ
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ПРОБЕГ КАК ВТ_ПРОБЕГ
+		ПО ВТ_АВТО_ДАТЫ.Ссылка = ВТ_ПРОБЕГ.Ссылка
+			И ВТ_АВТО_ДАТЫ.Дата = ВТ_ПРОБЕГ.Дата
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ГОСНОМЕР КАК ВТ_ГОСНОМЕР
+		ПО ВТ_АВТО_ДАТЫ.Ссылка = ВТ_ГОСНОМЕР.Ссылка
+			И ВТ_АВТО_ДАТЫ.Дата = ВТ_ГОСНОМЕР.Дата
+
+СГРУППИРОВАТЬ ПО
+	ВТ_АВТО_ДАТЫ.Ссылка</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>Контрагенты</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.Заказчик</sourceExpression>
+		<destinationExpression>Контрагенты.КонтрагентСсылка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>Автомобили</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.Автомобиль</sourceExpression>
+		<destinationExpression>Автомобиль.Автомобиль</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>СогласиеНаОбработкуПД</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.Заказчик</sourceExpression>
+		<destinationExpression>СогласиеНаОбработкуПД.Контрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>Обзвоны</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.ЗаказНаряд</sourceExpression>
+		<destinationExpression>Обзвоны.ДокументОснование</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>ЗаказыПокупателейОстатки</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.Заказчик</sourceExpression>
+		<destinationExpression>ЗаказыПокупателейОстатки.Контрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>ТипыСервисногоОбслуживания</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.ВидРемонтаКодУпр</sourceExpression>
+		<destinationExpression>ТипыСервисногоОбслуживания.КодУпр</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Контрагенты</sourceDataSet>
+		<destinationDataSet>АдресаЭлектроннойПочты</destinationDataSet>
+		<sourceExpression>Контрагенты.КонтрагентСсылка</sourceExpression>
+		<destinationExpression>КонтрагентыКонтактнаяИнформация.АдресаЭлектроннойПочты.Контрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Контрагенты</sourceDataSet>
+		<destinationDataSet>АдресаКонтрагентов</destinationDataSet>
+		<sourceExpression>Контрагенты.КонтрагентСсылка</sourceExpression>
+		<destinationExpression>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Контрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>Контрагенты</sourceDataSet>
+		<destinationDataSet>ТелефоныКонтрагентов</destinationDataSet>
+		<sourceExpression>Контрагенты.КонтрагентСсылка</sourceExpression>
+		<destinationExpression>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.Контрагент</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗаказНаряды</sourceDataSet>
+		<destinationDataSet>СведенияОбАвтомобиле</destinationDataSet>
+		<sourceExpression>ЗаказНаряд.Автомобиль</sourceExpression>
+		<destinationExpression>СведенияОбАвтомобиле.Автомобиль</destinationExpression>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>ЗаказыПокупателейОстатки.ЕстьЗаказанныеЗапасныеЧасти</dataPath>
+		<expression>ВЫБОР КОГДА ЗаказыПокупателейОстатки.ЗаказаноОстаток ЕСТЬ NULL ТОГДА Истина ИНАЧЕ ЛОЖЬ КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Есть заказанные запчасти</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Размещение</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>СогласиеНаОбработкуПД.СогласиеКлиента</dataPath>
+		<expression>ВЫБОР КОГДА НЕ СогласиеНаОбработкуПД.ДатаНачалаДействия ЕСТЬ NULL  ИЛИ Контрагенты.СогласиеНаОбработкуПерсональныхДанных ТОГДА Истина ИНАЧЕ ЛОЖЬ КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Согласие клиента</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Размещение</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+				<dcscor:value xsi:type="xs:decimal">9</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>[Код дилера по SAP]</dataPath>
+		<expression>&amp;КодДилераПоSAP</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Код дилера по SAP</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Размещение</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов1</dataPath>
+		<expression>ВЫБОР КОГДА ЗначениеЗаполнено(КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов) ТОГДА "8" + ПОДСТРОКА(ФункцииДляКомпановкиДанных.ОставитьТолькоЦифры(КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов), 1, 3) + ПОДСТРОКА(ФункцииДляКомпановкиДанных.ОставитьТолькоЦифры(КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов), 4, 3) + ПОДСТРОКА(ФункцииДляКомпановкиДанных.ОставитьТолькоЦифры(КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов), 7, 2) + ПОДСТРОКА(ФункцииДляКомпановкиДанных.ОставитьТолькоЦифры(КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов), 9, 2) ИНАЧЕ "" КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Телефон для контактов1</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+				<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Размещение</dcscor:parameter>
+				<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+			</dcscor:item>
+		</appearance>
+	</calculatedField>
+	<totalField>
+		<dataPath>Обзвоны.ВариантОтвета</dataPath>
+		<expression>Обзвоны.ВариантОтвета</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Обзвоны.Комментарий</dataPath>
+		<expression>Обзвоны.Комментарий</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>КОНЕЦПЕРИОДА(&amp;ПериодОтчета.ДатаОкончания, "ДЕНЬ")</expression>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КодДилераПоSAP</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Код дилера по SAP</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>0</v8:Length>
+				<v8:AllowedLength>Variable</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string"/>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Комментарий</v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance/>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">44.875</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">44.875</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+	</template>
+	<template>
+		<name>Макет2</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Вопрос</dcsat:value>
+						<dcsat:appearance/>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>Размещение</dcscor:parameter>
+							<dcscor:value xsi:type="dcscor:DataCompositionTextPlacementType">Wrap</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">20.375</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">20.375</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Вопрос</dcsat:name>
+			<dcsat:expression>Представление(Обзвоны.Вопрос)</dcsat:expression>
+		</parameter>
+	</template>
+	<groupTemplate>
+		<groupName>Комментарий</groupName>
+		<templateType>Header</templateType>
+		<template>Макет1</template>
+	</groupTemplate>
+	<groupTemplate>
+		<groupName>Вопрос</groupName>
+		<templateType>Header</templateType>
+		<template>Макет2</template>
+	</groupTemplate>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>[Код дилера по SAP]</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд.НазваниеДилера</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль.VIN</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд.Номер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СведенияОбАвтомобиле.Пробег</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Автомобиль.Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СведенияОбАвтомобиле.ГосНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагенты.ФамилияКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагенты.ИмяКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагенты.ОтчествоКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагенты.Пол</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагенты.ДатаРождения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Индекс</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Город</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.АдресКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов1</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов2</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд.ДатаОбслуживанияАвтомобиля</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТипыСервисногоОбслуживания.ТипСервисногоОбслуживания</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СогласиеНаОбработкуПД.СогласиеКлиента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаЭлектроннойПочты.АдресЭлектроннойПочты</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагенты.ФизическоеЛицо</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказНаряд.СуммаДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаказыПокупателейОстатки.ЕстьЗаказанныеЗапасныеЧасти</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Автомобиль.Модель</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>2eaa2f98-ba79-47a9-be2b-dd125df4efd1</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагенты.КонтрагентСсылка</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>521c1ec8-dafa-4cc4-932a-dfef978b9b73</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ЗаказНаряд.ВидРемонта</dcsset:left>
+					<dcsset:comparisonType>NotInList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>0f5157e5-5e4e-4fe2-90c0-f8022e3e3f4d</dcsset:userSettingID>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Контрагенты.ФормаСобственности</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="v8:ValueListType">
+						<v8:valueType/>
+						<v8:lastId xsi:type="xs:decimal">-1</v8:lastId>
+					</dcsset:right>
+					<dcsset:userSettingID>b8fe025a-3fcd-45a2-a037-2bf54454daca</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>36f2fc02-2c95-4297-abea-ad27a0b740cb</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>КодДилераПоSAP</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string"/>
+					<dcsset:userSettingID>f3d4e52b-f2da-4e5a-bfd8-792ea778b30d</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ЗаказНаряд.ДатаОбслуживанияАвтомобиля</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:column>
+					<dcsset:name>Вопрос</dcsset:name>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Обзвоны.Вопрос</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Обзвоны.ВопросНомерВАнкете</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>Обзвоны.ВопросНомерВАнкете</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Обзвоны.Вопрос</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Обзвоны.ВариантОтвета</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:column>
+					<dcsset:name>Комментарий</dcsset:name>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Обзвоны.Комментарий</dcsset:field>
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content> </v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:column>
+				<dcsset:row>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:conditionalAppearance>
+						<dcsset:item>
+							<dcsset:selection>
+								<dcsset:item>
+									<dcsset:field>ЗаказНаряд.НазваниеДилера</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Индекс</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.Город</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаКонтрагентов.АдресКлиента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов1</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>КонтрагентыКонтактнаяИнформация.ТелефоныКонтрагентов.ТелефонДляКонтактов2</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>КонтрагентыКонтактнаяИнформация.АдресаЭлектроннойПочты.АдресЭлектроннойПочты</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>ЗаказНаряд.СуммаДокумента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Контрагенты.ФамилияКлиента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Контрагенты.ИмяКлиента</dcsset:field>
+								</dcsset:item>
+								<dcsset:item>
+									<dcsset:field>Контрагенты.ОтчествоКлиента</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+							<dcsset:filter/>
+							<dcsset:appearance>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:HorizontalAlign">Left</dcscor:value>
+								</dcscor:item>
+								<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+									<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+									<dcscor:value xsi:type="v8ui:VerticalAlign">Center</dcscor:value>
+								</dcscor:item>
+							</dcsset:appearance>
+							<dcsset:useInFieldsHeader>DontUse</dcsset:useInFieldsHeader>
+							<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+						</dcsset:item>
+					</dcsset:conditionalAppearance>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,21 @@
+﻿Выполняется удаление сборки 'D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.InstallLog
+   assemblypath = D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.exe
+Выполняется удаление источника EventLog OnecLogElastic.
+Выполняется удаление службы OnecLogElastic из системы...
+Служба OnecLogElastic успешно удалена из системы.
+Выполняется установка сборки 'D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.InstallLog
+   assemblypath = D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.exe
+Устанавливается служба OnecLogElastic...
+Служба OnecLogElastic успешно установлена.
+Создается исходный EventLog OnecLogElastic в журнале Application...
+Выполняется фиксация сборки 'D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.exe'.
+Затронуты следующие параметры:
+   logtoconsole = 
+   logfile = D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.InstallLog
+   assemblypath = D:\develop\1C83.Elastic\Service\OnecLogElasticSentry.exe

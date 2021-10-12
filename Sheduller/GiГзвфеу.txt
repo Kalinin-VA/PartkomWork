@@ -1,0 +1,2 @@
+cd C:\1C WORK\GIT\partkom83new
+gitsync sync C:\Partkom83new2 --storage-user Kalinin --storage-pwd=123

@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоНачальное</dataPath>
+			<field>КоличествоНачальное</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество начальное</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Количество</dataPath>
+			<field>Количество</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидДокумена</dataPath>
+			<field>ВидДокумена</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид докумена</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящийНомерПоставщика</dataPath>
+			<field>ВходящийНомерПоставщика</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящий номер поставщика</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладПолучатель</dataPath>
+			<field>СкладПолучатель</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВходящаяДатаПоставщика</dataPath>
+			<field>ВходящаяДатаПоставщика</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Входящая дата поставщика</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПоступления</dataPath>
+			<field>ДокументПоступления</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ поступления</v8:content>
+				</v8:item>
+			</title>
+			<appearance/>
+			<inputParameters/>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СкладОтправитель</dataPath>
+			<field>СкладОтправитель</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Склад отправитель</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументВозвратаНекачественногоТовара</dataPath>
+			<field>ДокументВозвратаНекачественногоТовара</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ возврата некачественного товара</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыгрузкиВТоплог</dataPath>
+			<field>ДатаВыгрузкиВТоплог</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата выгрузки в топлог</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаРазмещения</dataPath>
+			<field>ДатаРазмещения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата размещения</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаДокумента</dataPath>
+			<field>СуммаДокумента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сумма документа</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ВозвратТоваровПоставщику.СкладПолучатель = ЗНАЧЕНИЕ(Справочник.Склады.ПустаяСсылка)
+			ТОГДА "Возврат"
+		ИНАЧЕ "Перемещение"
+	КОНЕЦ КАК ВидДокумена,
+	ВозвратТоваровПоставщику.Контрагент КАК Контрагент,
+	ВозвратТоваровПоставщику.Ссылка КАК Документ,
+	ВозвратТоваровПоставщику.Склад КАК СкладОтправитель,
+	ВозвратТоваровПоставщику.СкладПолучатель КАК СкладПолучатель,
+	ВозвратТоваровПоставщику.ДокументОснование КАК ДокументПоступления,
+	ВозвратТоваровПоставщику.ДокументОснование.ДатаВходящегоДокументаСФ КАК ВходящаяДатаПоставщика,
+	ВозвратТоваровПоставщику.ДокументОснование.НомерВходящегоДокументаСФ КАК ВходящийНомерПоставщика,
+	ВЫБОР
+		КОГДА ВозвратТоваровПоставщику.ВозвратНеликвидаVMI
+			ТОГДА ВЫРАЗИТЬ(Документ_ВозвратТоваровПоставщику_ДополнительныеРеквизиты.Значение КАК Документ.ВозвратТоваровПоставщику)
+		ИНАЧЕ ЛОЖЬ
+	КОНЕЦ КАК ДокументВозвратаНекачественногоТовара
+ПОМЕСТИТЬ ВТ_Возвраты
+ИЗ
+	Документ.ВозвратТоваровПоставщику КАК ВозвратТоваровПоставщику
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.Документ_ВозвратТоваровПоставщику_ДополнительныеРеквизиты КАК Документ_ВозвратТоваровПоставщику_ДополнительныеРеквизиты
+		ПО (Документ_ВозвратТоваровПоставщику_ДополнительныеРеквизиты.Объект = ВозвратТоваровПоставщику.Ссылка)
+			И (Документ_ВозвратТоваровПоставщику_ДополнительныеРеквизиты.Свойство = ЗНАЧЕНИЕ(ПланВидовХарактеристик.СвойстваОбъектов.ДокументВозвратVMIНекондиция))
+ГДЕ
+	ВозвратТоваровПоставщику.Дата МЕЖДУ &amp;ДатаНачала И &amp;ДатаОкончания
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Возвраты.Документ КАК Документ,
+	ЕСТЬNULL(ИсторияВыгрузкиВТоплог.ДатаСообщения, ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаВыгрузкиВТоплог
+ПОМЕСТИТЬ ВТ_ДатыОбмена
+ИЗ
+	ВТ_Возвраты КАК ВТ_Возвраты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.ИсторияОбменовПоОбъектам КАК ИсторияВыгрузкиВТоплог
+		ПО (ИсторияВыгрузкиВТоплог.Узел = &amp;УзелВыгрузкиТоплог)
+			И (ИсторияВыгрузкиВТоплог.Исходящее = ИСТИНА)
+			И ВТ_Возвраты.Документ = ИсторияВыгрузкиВТоплог.Объект
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Возвраты.Документ,
+	ЕСТЬNULL(ИсторияВыгрузкиВТоплог.ДатаСообщения, ДАТАВРЕМЯ(1, 1, 1))
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Возвраты.ДокументПоступления КАК ДокументПоступления,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ ЕСТЬNULL(ПеремещениеТоваров.Дата, ДАТАВРЕМЯ(1, 1, 1))) КАК ДатаРазмещения
+ПОМЕСТИТЬ ВТ_ДатыРазмещений
+ИЗ
+	ВТ_Возвраты КАК ВТ_Возвраты
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПеремещениеТоваров КАК ПеремещениеТоваров
+		ПО ВТ_Возвраты.ДокументПоступления = ПеремещениеТоваров.ДокументОснование
+			И (ПеремещениеТоваров.ВидОперации = ЗНАЧЕНИЕ(Перечисление.ВидыОперацийПеремещенияТоваров.ПриемкаТопЛог))
+			И (ПеремещениеТоваров.Проведен = ИСТИНА)
+ГДЕ
+	НЕ ВТ_Возвраты.ДокументПоступления = ЗНАЧЕНИЕ(Документ.ПоступлениеТоваровУслуг.Пустаяссылка)
+
+СГРУППИРОВАТЬ ПО
+	ВТ_Возвраты.ДокументПоступления
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВложенныйЗапрос.Ссылка КАК Документ,
+	СУММА(ВложенныйЗапрос.КоличествоНачальное) КАК КоличествоНачальное,
+	СУММА(ВложенныйЗапрос.Количество) КАК Количество,
+	СУММА(ВложенныйЗапрос.СуммаДокумента) КАК СуммаДокумента,
+	ВложенныйЗапрос.Номенклатура КАК Номенклатура
+ПОМЕСТИТЬ ВТ_КоличествоИСумма
+ИЗ
+	(ВЫБРАТЬ
+		ВозвратТоваровПоставщикуТовары.Номенклатура КАК Номенклатура,
+		ВозвратТоваровПоставщикуТовары.КолНач КАК КоличествоНачальное,
+		ВозвратТоваровПоставщикуТовары.Сумма КАК СуммаДокумента,
+		ВозвратТоваровПоставщикуТовары.Ссылка КАК Ссылка,
+		ВозвратТоваровПоставщикуТовары.Количество КАК Количество
+	ИЗ
+		ВТ_Возвраты КАК ВТ_Возвраты
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ВозвратТоваровПоставщику.Товары КАК ВозвратТоваровПоставщикуТовары
+			ПО ВТ_Возвраты.Документ = ВозвратТоваровПоставщикуТовары.Ссылка
+	
+	СГРУППИРОВАТЬ ПО
+		ВозвратТоваровПоставщикуТовары.Ссылка,
+		ВозвратТоваровПоставщикуТовары.Номенклатура,
+		ВозвратТоваровПоставщикуТовары.КолНач,
+		ВозвратТоваровПоставщикуТовары.Сумма,
+		ВозвратТоваровПоставщикуТовары.Количество
+	
+	ОБЪЕДИНИТЬ ВСЕ
+	
+	ВЫБРАТЬ
+		ВозвратТоваровПоставщикуТовары.Номенклатура,
+		ВозвратТоваровПоставщикуТовары.КолНач,
+		ВозвратТоваровПоставщикуТовары.Сумма,
+		ВозвратТоваровПоставщикуТовары.Ссылка,
+		ВозвратТоваровПоставщикуТовары.Количество
+	ИЗ
+		ВТ_Возвраты КАК ВТ_Возвраты
+			ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ВозвратТоваровПоставщику.Товары КАК ВозвратТоваровПоставщикуТовары
+			ПО ВТ_Возвраты.ДокументВозвратаНекачественногоТовара = ВозвратТоваровПоставщикуТовары.Ссылка
+	ГДЕ
+		НЕ ВТ_Возвраты.ДокументВозвратаНекачественногоТовара = ЗНАЧЕНИЕ(Документ.ВозвратТоваровПоставщику.Пустаяссылка)
+	
+	СГРУППИРОВАТЬ ПО
+		ВозвратТоваровПоставщикуТовары.Ссылка,
+		ВозвратТоваровПоставщикуТовары.Номенклатура,
+		ВозвратТоваровПоставщикуТовары.КолНач,
+		ВозвратТоваровПоставщикуТовары.Сумма,
+		ВозвратТоваровПоставщикуТовары.Количество) КАК ВложенныйЗапрос
+
+СГРУППИРОВАТЬ ПО
+	ВложенныйЗапрос.Ссылка,
+	ВложенныйЗапрос.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_Возвраты.ВидДокумена КАК ВидДокумена,
+	ВТ_Возвраты.Контрагент КАК Контрагент,
+	ВТ_Возвраты.Документ КАК Документ,
+	ВТ_Возвраты.СкладОтправитель КАК СкладОтправитель,
+	ВТ_Возвраты.СкладПолучатель КАК СкладПолучатель,
+	ВТ_Возвраты.ДокументПоступления КАК ДокументПоступления,
+	ВТ_Возвраты.ВходящаяДатаПоставщика КАК ВходящаяДатаПоставщика,
+	ВТ_Возвраты.ВходящийНомерПоставщика КАК ВходящийНомерПоставщика,
+	ВТ_Возвраты.ДокументВозвратаНекачественногоТовара КАК ДокументВозвратаНекачественногоТовара,
+	ВТ_ДатыОбмена.ДатаВыгрузкиВТоплог КАК ДатаВыгрузкиВТоплог,
+	ВТ_ДатыРазмещений.ДатаРазмещения КАК ДатаРазмещения,
+	ВТ_КоличествоИСумма.Количество КАК Количество,
+	ВТ_КоличествоИСумма.КоличествоНачальное КАК КоличествоНачальное,
+	ВТ_КоличествоИСумма.СуммаДокумента КАК СуммаДокумента
+ИЗ
+	ВТ_Возвраты КАК ВТ_Возвраты
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ДатыОбмена КАК ВТ_ДатыОбмена
+		ПО ВТ_Возвраты.Документ = ВТ_ДатыОбмена.Документ
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ДатыРазмещений КАК ВТ_ДатыРазмещений
+		ПО ВТ_Возвраты.ДокументПоступления = ВТ_ДатыРазмещений.ДокументПоступления
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_КоличествоИСумма КАК ВТ_КоличествоИСумма
+		ПО ВТ_Возвраты.Документ = ВТ_КоличествоИСумма.Документ</query>
+	</dataSet>
+	<totalField>
+		<dataPath>Количество</dataPath>
+		<expression>Сумма(Количество)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоНачальное</dataPath>
+		<expression>Сумма(КоличествоНачальное)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаДокумента</dataPath>
+		<expression>Сумма(СуммаДокумента)</expression>
+	</totalField>
+	<parameter>
+		<name>ДатаНачала</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата начала</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаНачала</expression>
+	</parameter>
+	<parameter>
+		<name>ДатаОкончания</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата окончания</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;ПериодОтчета.ДатаОкончания</expression>
+	</parameter>
+	<parameter>
+		<name>УзелВыгрузкиТоплог</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Узел выгрузки топлог</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:TypeSet xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ExchangePlanRef</v8:TypeSet>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланОбмена.ОбменПартКом83_TopLog.ПустаяСсылка</value>
+		<useRestriction>true</useRestriction>
+		<expression>ОбменДаннымиКлиентСервер.ПолучитьИсходящийУзелОбмена("ОбменПартКом83_TopLog",3)</expression>
+	</parameter>
+	<parameter>
+		<name>ПериодОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+			<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+			<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+		</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидДокумена</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Контрагент</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Документ.Номер</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Документ.Дата</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата документа</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СкладОтправитель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СкладПолучатель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументВозвратаНекачественногоТовара.Номер</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер возврата (некачественный)</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументВозвратаНекачественногоТовара.Дата</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата возврата (некачественный)	</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступления.Номер</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Номер ПТУ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступления.Дата</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата ПТУ</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступления.НомерВходящегоДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Вход. Номер поставщика</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДокументПоступления.ДатаВходящегоДокумента</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Дата документа поставщика</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаРазмещения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВыгрузкиВТоплог</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Количество</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоНачальное</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаДокумента</dcsset:field>
+				</dcsset:item>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>c8b2188d-34c1-482f-8301-5ca2431cb83c</dcsset:userSettingID>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>b5a4720a-84d9-4673-ab47-9e20a23d209e</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>УзелВыгрузкиТоплог</dcscor:parameter>
+					<dcscor:value xsi:nil="true"/>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ПериодОтчета</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">Custom</v8:variant>
+						<v8:startDate>0001-01-01T00:00:00</v8:startDate>
+						<v8:endDate>0001-01-01T00:00:00</v8:endDate>
+					</dcscor:value>
+					<dcsset:userSettingID>415e73c0-6c9b-42b5-b0e4-84356e62e301</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>1cc05d54-15c0-406b-ad8b-bbb7b60acc67</dcsset:userSettingID>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:viewMode>Normal</dcsset:viewMode>
+				<dcsset:userSettingID>5744565d-5213-4a69-836d-564ec9241278</dcsset:userSettingID>
+			</dcsset:conditionalAppearance>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+			<dcsset:itemsViewMode>Normal</dcsset:itemsViewMode>
+			<dcsset:itemsUserSettingID>fcb40f94-ecfe-49ca-a7a8-c8f384683338</dcsset:itemsUserSettingID>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

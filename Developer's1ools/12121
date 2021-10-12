@@ -1,0 +1,8 @@
+﻿<CatalogObject.УчетныеЗаписиСайта xmlns="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Ref>79d453cb-67d1-11e8-80f9-005056817b9c</Ref>
+	<DeletionMark>false</DeletionMark>
+	<Owner xsi:type="CatalogRef.ТорговыеТочки">76a1aa92-a61b-4f9a-a9a7-bc746e7f1bc5</Owner>
+	<Code>2129008</Code>
+	<Description>Основная</Description>
+	<Пароль>Kr110392</Пароль>
+</CatalogObject.УчетныеЗаписиСайта>

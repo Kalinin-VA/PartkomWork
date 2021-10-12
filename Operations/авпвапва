@@ -1,0 +1,40 @@
+﻿<InformationRegisterRecordSet.ОбъектыОбмена xmlns="http://v8.1c.ru/8.1/data/enterprise/current-config" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Filter>
+		<FilterItem xmlns="http://v8.1c.ru/8.1/data/enterprise">
+			<Name xsi:type="xs:string">Period</Name>
+			<Value xsi:type="xs:dateTime">2021-03-25T09:55:07</Value>
+		</FilterItem>
+		<FilterItem xmlns="http://v8.1c.ru/8.1/data/enterprise">
+			<Name xsi:type="xs:string">ВидОбмена</Name>
+			<Value xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config" xsi:type="d4p1:EnumRef.ВидыОбменов">ОбменССайтом_Розница</Value>
+		</FilterItem>
+		<FilterItem xmlns="http://v8.1c.ru/8.1/data/enterprise">
+			<Name xsi:type="xs:string">НомерСообщения</Name>
+			<Value xsi:type="xs:decimal">2541740</Value>
+		</FilterItem>
+		<FilterItem xmlns="http://v8.1c.ru/8.1/data/enterprise">
+			<Name xsi:type="xs:string">ИндексСтроки</Name>
+			<Value xsi:type="xs:decimal">1</Value>
+		</FilterItem>
+	</Filter>
+	<Record>
+		<Period>2021-03-25T09:55:07</Period>
+		<ВидОбмена>ОбменССайтом_Розница</ВидОбмена>
+		<НомерСообщения>2541740</НомерСообщения>
+		<ИндексСтроки>1</ИндексСтроки>
+		<ДанныеХранилище>AQEIAAAAAAAAAO+7v3siVSJ9</ДанныеХранилище>
+		<ВидОбъекта/>
+		<Данные/>
+		<Обработано>false</Обработано>
+		<ДатаОбработки>0001-01-01T00:00:00</ДатаОбработки>
+		<Ошибка>false</Ошибка>
+		<ТекстОшибки/>
+		<Ссылка xsi:nil="true"/>
+		<НомерИсходящегоПакета>0</НомерИсходящегоПакета>
+		<ДатаОтправки>0001-01-01T00:00:00</ДатаОтправки>
+		<ОбработанПолучателем>false</ОбработанПолучателем>
+		<НомерПотока>0</НомерПотока>
+		<Параметры>AQEIAAAAAAAAAO+7v3siVSJ9</Параметры>
+		<НомерПопытки>0</НомерПопытки>
+	</Record>
+</InformationRegisterRecordSet.ОбъектыОбмена>

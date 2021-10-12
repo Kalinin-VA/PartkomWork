@@ -1,0 +1,11 @@
+﻿<Structure xmlns="http://v8.1c.ru/8.1/data/core" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Property name="ФайлКонсоли">
+		<Value xsi:type="xs:string">C:\Users\Kalinin-VA\AppData\Local\1C\1Cv8\Srvr__nng9_v_1c_07__Ref__partkom83__\irCodeConsole_Калинин Владимир_0b3f0109-edae-4d76-8024-c0018d768385.tmp</Value>
+	</Property>
+	<Property name="ИдентификаторАлгоритма">
+		<Value xsi:type="xs:string">Алгоритм3</Value>
+	</Property>
+	<Property name="ВерсияАлгоритма">
+		<Value xsi:type="xs:dateTime">2020-04-20T10:14:26</Value>
+	</Property>
+</Structure>

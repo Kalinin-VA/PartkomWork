@@ -1,0 +1,34 @@
+DECLARE @DBName VARCHAR(255), @SchemaName VARCHAR(255), @TableName VARCHAR(255)
+SELECT
+	 @DBName = 'wms-toplog'
+	,@SchemaName = 'dbo'
+	,@TableName = '_Document103' --_AccumRg1982 _Document100 _AccumRgT2039 _AccumRg2019 _AccumRg3493 _AccumRg3507 _AccumRgTn2001 _Document93 _InfoRg2245 _InfoRg1935
+
+
+select
+       (i.dpages * 8) / 1024 as mb,
+       so.name as [object], si.name as [index],
+       iu.user_seeks, iu.user_scans, iu.user_lookups, iu.user_updates,
+       -- iu.last_user_seek, iu.last_user_scan, iu.last_user_lookup, iu.last_user_update,
+       CAST(CASE si.index_id WHEN 1 THEN 1 ELSE 0 END AS bit) AS [Clustered],
+       -- si.is_primary_key + 2*si.is_unique_constraint AS [IndexKeyType],
+       si.is_unique AS [Unique],
+	   si.is_disabled,
+		
+       (
+             select (case ic.is_included_column when 0 then clmns.name + '.' else '+' + clmns.name end) as 'data()' from sys.index_columns ic 
+             inner join sys.columns clmns on clmns.object_id = ic.object_id and clmns.column_id = ic.column_id
+             where ic.[object_id] = si.[object_id] and ic.index_id = si.index_id
+             for xml path('') 
+       ) as [Columns]
+	   , sp.data_compression_desc
+	   , sp.partition_number
+	  -- , sp.*
+from sys.dm_db_index_usage_stats iu
+	inner join sys.indexes si on si.object_id = iu.object_id and si.index_id = iu.index_id 
+	inner join sys.all_objects so on so.object_id = si.object_id 
+	inner join sys.databases sd on sd.database_id = iu.database_id 
+	inner join sys.sysindexes i on i.name = si.name 
+	left JOIN  sys.partitions SP ON sp.index_id = si.index_id and sp.object_id = si.object_id
+where is_ms_shipped <> 1 and si.name is not null and iu.database_id = db_id(@DBName) and si.[object_id] = i.id and i.id in (object_id(@SchemaName + '.' + @TableName))
+order by [object], 4 desc

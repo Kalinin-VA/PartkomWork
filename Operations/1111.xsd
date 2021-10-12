@@ -1,0 +1,983 @@
+﻿<xs:schema xmlns:ns1="http://v8.1c.ru/8.1/data/core" xmlns:tns="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ws-02.part-kom.ru/partkom83/hs/SiteExchange/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:import namespace="http://v8.1c.ru/8.1/data/core"/>
+	<xs:complexType name="CatalogObject.ТипыДоставки">
+		<xs:sequence>
+			<xs:element name="Ref" type="ns1:UUID"/>
+			<xs:element name="DeletionMark" type="xs:boolean"/>
+			<xs:element name="Description" type="xs:string"/>
+			<xs:element name="КодПеремещения" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="Code" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="EnumRef.ТипыСкладов">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Магазин"/>
+			<xs:enumeration value="ТочкаДоставки"/>
+			<xs:enumeration value="МагазинИТочкаДоставки"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="ExpressDelivery.1cCancel">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.1cChange">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="type_cost" type="xs:int"/>
+			<xs:element name="invoice_number" type="xs:string"/>
+			<xs:element name="delivery_cost" type="xs:int"/>
+			<xs:element name="items" type="tns:ExpressDelivery.Items"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.1cConfirm">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="type_cost" type="xs:int"/>
+			<xs:element name="invoice_number" type="xs:string"/>
+			<xs:element name="delivery_cost" type="xs:int"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.Add">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="items" type="tns:ExpressDelivery.Items"/>
+			<xs:element name="client_name" type="xs:string"/>
+			<xs:element name="client_phone" type="xs:string"/>
+			<xs:element name="date_statement" type="xs:dateTime" nillable="true"/>
+			<xs:element name="date_arrival" type="xs:dateTime" nillable="true"/>
+			<xs:element name="delivery_cost" type="xs:int"/>
+			<xs:element name="type_cost" type="xs:int"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.Cancel">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="source" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.DeletePart">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="source" type="xs:string"/>
+			<xs:element name="items" type="tns:ExpressDelivery.Items"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.Init">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="login" type="xs:string"/>
+			<xs:element name="date_created" type="xs:dateTime"/>
+			<xs:element name="delivery_date" type="xs:dateTime"/>
+			<xs:element name="client_phone" type="xs:string"/>
+			<xs:element name="delivery_address" type="xs:string"/>
+			<xs:element name="items" type="tns:ExpressDelivery.Items"/>
+			<xs:element name="date_statement" type="xs:dateTime" nillable="true"/>
+			<xs:element name="date_arrival" type="xs:dateTime" nillable="true"/>
+			<xs:element name="client_name" type="xs:string"/>
+			<xs:element name="delivery_cost" type="xs:int"/>
+			<xs:element name="type_cost" type="xs:int"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.Item">
+		<xs:choice>
+			<xs:element name="motion_id" type="xs:string"/>
+			<xs:element name="maker_id" type="xs:int" minOccurs="0"/>
+			<xs:element name="number" type="xs:string" minOccurs="0"/>
+			<xs:element name="quantity" type="xs:int" minOccurs="0"/>
+			<xs:element name="price" type="xs:float" minOccurs="0"/>
+			<xs:element name="store_placement" type="xs:int" minOccurs="0"/>
+			<xs:element name="typeError" type="xs:int" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.Items">
+		<xs:choice>
+			<xs:element name="item" type="tns:ExpressDelivery.Item" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.Log">
+		<xs:choice>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="operation_type" type="xs:string"/>
+			<xs:element name="invoice_number" type="xs:string"/>
+			<xs:element name="error" type="xs:int"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="source" type="xs:string" minOccurs="0"/>
+			<xs:element name="items" type="tns:ExpressDelivery.LogItems" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.LogItem">
+		<xs:choice>
+			<xs:element name="motion_id" type="xs:string"/>
+			<xs:element name="quantity" type="xs:int" minOccurs="0"/>
+			<xs:element name="quantity_site" type="xs:int" minOccurs="0"/>
+			<xs:element name="error" type="xs:int"/>
+			<xs:element name="description" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.LogItems">
+		<xs:choice>
+			<xs:element name="item" type="tns:ExpressDelivery.LogItem" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ExpressDelivery.LogistConfirm">
+		<xs:all>
+			<xs:element name="express_delivery_request_id" type="xs:string"/>
+			<xs:element name="route_code" type="xs:int"/>
+			<xs:element name="driver_code" type="ns1:UUID"/>
+			<xs:element name="delivery_cost" type="xs:int"/>
+			<xs:element name="type_cost" type="xs:int"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="retail_order">
+		<xs:choice>
+			<xs:element name="number" type="xs:string" minOccurs="0"/>
+			<xs:element name="client" type="xs:int" minOccurs="0"/>
+			<xs:element name="date_created" type="xs:dateTime"/>
+			<xs:element name="delivery_address" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="delivery_needed" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="name" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="filial_uuid" type="ns1:UUID"/>
+			<xs:element name="user_comment" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="phone" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="shop_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="delivery_price" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="items">
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="item" minOccurs="0" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:choice>
+									<xs:element name="site_id" type="xs:string" nillable="true" minOccurs="0"/>
+									<xs:element name="part_uuid" type="ns1:UUID"/>
+									<xs:element name="quantity" type="xs:int" minOccurs="0"/>
+									<xs:element name="price" type="xs:float" minOccurs="0"/>
+									<xs:element name="description" type="xs:string" nillable="true" minOccurs="0"/>
+									<xs:element name="is_cross" type="xs:boolean" nillable="true"/>
+									<xs:element name="input_price" type="xs:float" nillable="true"/>
+									<xs:element name="provider_id" type="xs:int" nillable="true"/>
+									<xs:element name="date_guaranteed" type="xs:dateTime" nillable="true"/>
+									<xs:element name="provider_date_guaranteed" type="xs:dateTime" nillable="true"/>
+									<xs:element name="date_expected" type="xs:dateTime" nillable="true"/>
+									<xs:element name="provider_date_expected" type="xs:dateTime" nillable="true"/>
+								</xs:choice>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="manager_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="return_request">
+		<xs:choice>
+			<xs:element name="Klient" type="xs:string"/>
+			<xs:element name="IDZaprosa" type="xs:string"/>
+			<xs:element name="Opisanie" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="KodTovara1S8" type="xs:string"/>
+			<xs:element name="KodTovara1S" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="Artikul" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="Izgotovitelj" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="NaimenovanieDetali" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="KolVo" type="xs:int"/>
+			<xs:element name="SiteID" type="xs:string"/>
+			<xs:element name="OtsutstvieSledovUstanovki" type="xs:boolean"/>
+			<xs:element name="CelostnostjUpakovki" type="xs:boolean"/>
+			<xs:element name="KompensaciyaRabotTrebovanieDenjgi" type="xs:float" nillable="true"/>
+			<xs:element name="PrichinaVozvrata" type="xs:string" nillable="true"/>
+			<xs:element name="BezogovorochnyyVozvrat1" type="xs:string" nillable="true"/>
+			<xs:element name="PoNakladnoy" type="xs:string"/>
+			<xs:element name="DataNakladnoy" type="xs:dateTime"/>
+			<xs:element name="SsylkaNaZagruzhennyeMaterial" type="xs:string"/>
+			<xs:element name="ChtoBudetSTovaromPosleVozvra" type="xs:string" nillable="true"/>
+			<xs:element name="VINKod" type="xs:string" nillable="true"/>
+			<xs:element name="ObrabotkaDetali" type="xs:int" nillable="true"/>
+			<xs:element name="VidUcenki" type="xs:string" nillable="true"/>
+			<xs:element name="ProcentUcenkiZaTovarProcentUcenkiOt" type="xs:int" nillable="true"/>
+			<xs:element name="CenaDetaliPosleUcenki" type="xs:float"/>
+			<xs:element name="VernutjNaSkladDo2" type="xs:date"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ВозвратыОтПокупателя.ОтменаАктаВозврата">
+		<xs:all>
+			<xs:element name="ИдентификаторСообщения" type="xs:string"/>
+			<xs:element name="Штрихкод" type="xs:string"/>
+			<xs:element name="ТекстовоеСообщение" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ВозвратыОтПокупателя.ОтправкаФайла">
+		<xs:choice>
+			<xs:element name="ИдентификаторСообщения" type="xs:string"/>
+			<xs:element name="Штрихкод" type="xs:string"/>
+			<xs:element name="Описание" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="ИдентификаторФайла" type="xs:int"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ВозвратыОтПокупателя.РезультатЗагрузки">
+		<xs:choice>
+			<xs:element name="ИдентификаторСообщения" type="xs:string"/>
+			<xs:element name="Штрихкод" type="xs:string"/>
+			<xs:element name="Ошибка" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ТекстОшибки" type="xs:string" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ВозвратыОтПокупателя.ТекстовоеСообщение">
+		<xs:all>
+			<xs:element name="ИдентификаторСообщения" type="xs:string"/>
+			<xs:element name="Штрихкод" type="xs:string"/>
+			<xs:element name="ТекстовоеСообщение" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Документы.ВозвратТоваровПоставщику">
+		<xs:choice>
+			<xs:element name="return_uuid" type="ns1:UUID" nillable="true"/>
+			<xs:element name="date_return" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="number" type="xs:string"/>
+			<xs:element name="buyer" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="buyer_inn" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="supplier_code" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="supplier_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="operation" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="doc_sum" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="partkom_checked" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="supplier_confirm" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="supplier_confirm_date" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="adjustment_invoce_date" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="adjustment_invoce_number" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="base_doc" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="items" type="tns:Документы.ВозвратТоваровПоставщику.Товары"/>
+			<xs:element name="accept_date" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="date_incoming" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="status_doc" type="xs:string"/>
+			<xs:element name="gtd" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="сountry_origin" type="xs:string" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ВозвратТоваровПоставщику.Товары">
+		<xs:sequence>
+			<xs:element name="item" type="tns:Документы.ВозвратТоваровПоставщику.Товары.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ВозвратТоваровПоставщику.Товары.Строка">
+		<xs:choice>
+			<xs:element name="product_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="product_code" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="product_name" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="articul" type="xs:string"/>
+			<xs:element name="brand" type="xs:string"/>
+			<xs:element name="amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="price" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="tax_rate" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="tax" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="cost" type="xs:double" nillable="true"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаказПоставщику">
+		<xs:choice>
+			<xs:element name="order_uuid" type="ns1:UUID" nillable="true"/>
+			<xs:element name="date_order" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="number" type="xs:string"/>
+			<xs:element name="buyer" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="supplier_code" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="supplier_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="closed" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="partkom_warehouse" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="single_invoice" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="auto_zeroing" type="xs:int" nillable="true"/>
+			<xs:element name="buyer_inn" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="auto_reject" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="status" type="xs:string" minOccurs="0"/>
+			<xs:element name="delivery_date" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="auction" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="items" type="tns:Документы.ЗаказПоставщику.Товары"/>
+			<xs:element name="vmi" type="xs:int" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаказПоставщику.Товары">
+		<xs:sequence>
+			<xs:element name="item" type="tns:Документы.ЗаказПоставщику.Товары.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаказПоставщику.Товары.Строка">
+		<xs:choice>
+			<xs:element name="id" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="order_number" type="xs:string"/>
+			<xs:element name="order_no" type="xs:int"/>
+			<xs:element name="product_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="product_code" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="product_name" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="articul" type="xs:string"/>
+			<xs:element name="supplier_articul" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="brand" type="xs:string"/>
+			<xs:element name="supplier_brand" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="warehouse_code" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="minimum_party" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="price" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="item_price" type="xs:double" nillable="true"/>
+			<xs:element name="warehouse_name" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="shipped_amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="arrived_amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="scrapped_amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="missing_amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="client_reject_amount" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="date_guaranteed" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="item_id" type="xs:string"/>
+			<xs:element name="warehouse_date" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="date_expected" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="replacement_articul" type="xs:string" nillable="true"/>
+			<xs:element name="replacement_brand" type="xs:string" nillable="true"/>
+			<xs:element name="item_price_response" type="xs:double" nillable="true"/>
+			<xs:element name="expected_amount" type="xs:int" nillable="true"/>
+			<xs:element name="shipping_amount" type="xs:int" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаявкаПокупателя">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID" nillable="true"/>
+			<xs:element name="Source" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="Подтверждена" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ДоговорКонтрагента" type="ns1:UUID" nillable="true"/>
+			<xs:element name="ТТ_Логин" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="СкладЦС" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="Самовывоз" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="АукционID" type="xs:int" minOccurs="0"/>
+			<xs:element name="НомерТекущейЗаявкиАукциона" type="xs:int"/>
+			<xs:element name="КоличествоЗаявокВАукционе" type="xs:int"/>
+			<xs:element name="items" type="tns:Документы.ЗаявкаПокупателя.Товары"/>
+			<xs:element name="ФлагСамовывоз" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="СамовывозИмя" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="СамовывозТелефон" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="СамовывозСклад" type="xs:string" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаявкаПокупателя.Загрузка">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Ошибка" type="xs:boolean"/>
+			<xs:element name="ТекстОшибки" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаявкаПокупателя.Товары">
+		<xs:sequence>
+			<xs:element name="item" type="tns:Документы.ЗаявкаПокупателя.Товары.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаявкаПокупателя.Товары.Строка">
+		<xs:choice>
+			<xs:element name="id" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="IDSite" type="xs:string" nillable="true"/>
+			<xs:element name="Номенклатура" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="Номенклатура_Наименование" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="Номенклатура_АртикулПоставщика" type="xs:string" nillable="true"/>
+			<xs:element name="Номенклатура_ИзготовительПоставщика" type="xs:string" nillable="true"/>
+			<xs:element name="ТипПоставки" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="Количество" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="Цена" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="Сумма" type="xs:double" nillable="true"/>
+			<xs:element name="ЦенаЗакупки" type="xs:double" nillable="true"/>
+			<xs:element name="ПрайсПоставщика_Код" type="xs:string" nillable="true"/>
+			<xs:element name="СрокГарантированный" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="СрокГарантированныйЗаказа" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="СрокОжидаемый" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="СрокОжидаемыйЗаказа" type="xs:dateTime" nillable="true" minOccurs="0"/>
+			<xs:element name="ДнейДоставкиДоДомашнегоСклада" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="КомментарийИзСайта" type="xs:string" nillable="true"/>
+			<xs:element name="PriceLogo" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="ОснованияДляПредоставленияСкидки" type="xs:string" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаявкаПокупателяОтмена">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="IDSite" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Документы.ЗаявкаПокупателяОтмена.Загрузка">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="IDSite" type="xs:string"/>
+			<xs:element name="Ошибка" type="xs:boolean"/>
+			<xs:element name="ТекстОшибки" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Документы.ПоступлениеТоваровУслуг">
+		<xs:choice>
+			<xs:element name="document_date" type="xs:dateTime"/>
+			<xs:element name="buyer_inn" type="xs:string"/>
+			<xs:element name="seller_inn" type="xs:string"/>
+			<xs:element name="supplier_code" type="xs:string"/>
+			<xs:element name="number" type="xs:string"/>
+			<xs:element name="partkom_warehouse" type="xs:int"/>
+			<xs:element name="invoice_id" type="xs:string"/>
+			<xs:element name="export_invoice_id" type="xs:string"/>
+			<xs:element name="order_number" type="xs:string"/>
+			<xs:element name="order_uuid" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="auto_reject" type="xs:int"/>
+			<xs:element name="status" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="doc_date" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="doc_time" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="items" type="tns:Документы.ПоступлениеТоваровУслуг.Товары"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Документы.ПоступлениеТоваровУслуг.Товары">
+		<xs:sequence>
+			<xs:element name="item" type="tns:Документы.ПоступлениеТоваровУслуг.Товары.Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ПоступлениеТоваровУслуг.Товары.Строка">
+		<xs:sequence>
+			<xs:element name="invoice_number" type="xs:string"/>
+			<xs:element name="articul" type="xs:string"/>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="amount" type="xs:int"/>
+			<xs:element name="tax_rate" type="xs:double"/>
+			<xs:element name="country_code" type="xs:int"/>
+			<xs:element name="country_name" type="xs:string"/>
+			<xs:element name="declaration_number" type="xs:string"/>
+			<xs:element name="cost_with_tax" type="xs:double"/>
+			<xs:element name="order_no" type="xs:int"/>
+			<xs:element name="src_articul" type="xs:string"/>
+			<xs:element name="src_brand" type="xs:string"/>
+			<xs:element name="invoice_id" type="xs:int"/>
+			<xs:element name="export_invoice_id" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ПоступлениеТоваровУслуг_Ошибка">
+		<xs:sequence>
+			<xs:element name="invoice_id" type="xs:int"/>
+			<xs:element name="doc_date" type="xs:string"/>
+			<xs:element name="doc_time" type="xs:string"/>
+			<xs:element name="error" type="xs:string"/>
+			<xs:element name="number" type="xs:string"/>
+			<xs:element name="status" type="xs:string"/>
+			<xs:element name="items" type="tns:Документы.ПоступлениеТоваровУслуг_Ошибка_Строки"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ПоступлениеТоваровУслуг_Ошибка_Строка">
+		<xs:sequence>
+			<xs:element name="order_no" type="xs:int"/>
+			<xs:element name="error" type="xs:string"/>
+			<xs:element name="invoice_id" type="xs:int"/>
+			<xs:element name="invoice_number" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Документы.ПоступлениеТоваровУслуг_Ошибка_Строки">
+		<xs:sequence>
+			<xs:element name="item" type="tns:Документы.ПоступлениеТоваровУслуг_Ошибка_Строка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ИсторияСтрокЗаявок">
+		<xs:choice>
+			<xs:element name="IDSite" type="xs:string"/>
+			<xs:element name="ВерсияДанных" type="xs:dateTime"/>
+			<xs:element name="НомерЗаявки" type="xs:string"/>
+			<xs:element name="Склад" type="ns1:UUID"/>
+			<xs:element name="Артикул" type="xs:string"/>
+			<xs:element name="Количество" type="xs:int"/>
+			<xs:element name="Цена" type="xs:double"/>
+			<xs:element name="ЗакупочнаяЦена" type="xs:double"/>
+			<xs:element name="Состояние" type="ns1:UUID"/>
+			<xs:element name="Розница" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="IDHistory" type="ns1:UUID"/>
+			<xs:element name="ТипДоставки" type="ns1:UUID" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Объекты">
+		<xs:choice>
+			<xs:element name="Объект" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ОтчетПоВзаиморасчетам">
+		<xs:all>
+			<xs:element name="ID" type="xs:string"/>
+			<xs:element name="ОтчетBase64" type="xs:string"/>
+			<xs:element name="Ошибка" type="xs:boolean"/>
+			<xs:element name="ТекстОшибки" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ОтчетПоВзаиморасчетамЗапрос">
+		<xs:all>
+			<xs:element name="ID" type="xs:int"/>
+			<xs:element name="Договор" type="ns1:UUID"/>
+			<xs:element name="EMail" type="xs:string"/>
+			<xs:element name="НачалоПериода" type="xs:date"/>
+			<xs:element name="КонецПериода" type="xs:date"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ОтчетПоПродажамVMI">
+		<xs:all>
+			<xs:element name="ID" type="xs:string"/>
+			<xs:element name="ОтчетBase64" type="xs:string"/>
+			<xs:element name="Ошибка" type="xs:boolean"/>
+			<xs:element name="ТекстОшибки" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ОтчетПоПродажамVMIЗапрос">
+		<xs:choice>
+			<xs:element name="ID" type="xs:string"/>
+			<xs:element name="Поставщик" type="ns1:UUID"/>
+			<xs:element name="Склад" type="ns1:UUID" nillable="true" minOccurs="0"/>
+			<xs:element name="НачалоПериода" type="xs:date"/>
+			<xs:element name="КонецПериода" type="xs:date"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Ошибки">
+		<xs:sequence>
+			<xs:element name="Ошибка" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ПараметрыФормированияЗаказов.ПрайсПоставщика">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="ПараметрыФормированияЗаказов.ПрайсыПоставщика">
+		<xs:choice>
+			<xs:element name="ПрайсПоставщикаСсылка" type="tns:ПараметрыФормированияЗаказов.ПрайсПоставщика" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ПрайсыПоставщикаVMI">
+		<xs:choice>
+			<xs:element name="ID" type="xs:int" minOccurs="0"/>
+			<xs:element name="Поставщик" type="ns1:UUID"/>
+			<xs:element name="ДатаЗагрузки" type="xs:dateTime"/>
+			<xs:element name="ПрайсыПоставщика" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="ПрайсыПоставщикаVMIЗагрузка">
+		<xs:choice>
+			<xs:element name="ID" type="xs:int" minOccurs="0"/>
+			<xs:element name="Ошибка" type="xs:boolean"/>
+			<xs:element name="ТекстОшибки" type="xs:string"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="РегистрыНакопления.Взаиморасчеты">
+		<xs:sequence>
+			<xs:element name="Договор" type="ns1:UUID"/>
+			<xs:element name="ЭтоДоговор1С77" type="xs:boolean"/>
+			<xs:element name="Сумма" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрыНакопления.ТоварныеОстатки">
+		<xs:sequence>
+			<xs:element name="Номенклатура" type="ns1:UUID"/>
+			<xs:element name="ПрайсПоставщика" type="ns1:UUID"/>
+			<xs:element name="СвободныйОстатокКоличество" type="xs:int"/>
+			<xs:element name="МинимальнаяПартияКоличество" type="xs:int"/>
+			<xs:element name="Цена" type="xs:double"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="РегистрыСведений.ТаблицаСостоянийИстория">
+		<xs:sequence>
+			<xs:element name="Период" type="xs:dateTime"/>
+			<xs:element name="SiteID" type="xs:string"/>
+			<xs:element name="Состояние" type="xs:int"/>
+			<xs:element name="Количество" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="СообщениеОбмена">
+		<xs:all>
+			<xs:element name="ПланОбмена" type="xs:string"/>
+			<xs:element name="Отправитель" type="xs:int"/>
+			<xs:element name="Получатель" type="xs:int"/>
+			<xs:element name="НомерСообщения" type="xs:int"/>
+			<xs:element name="НомерПринятого" type="xs:int"/>
+			<xs:element name="Объекты" type="tns:Объекты"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="СостояниеСтрокиЗаявки">
+		<xs:choice>
+			<xs:element name="Дата" type="xs:dateTime"/>
+			<xs:element name="Склад" type="ns1:UUID"/>
+			<xs:element name="Артикул" type="xs:string"/>
+			<xs:element name="НомерЗаявки" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="IDSite" type="xs:string"/>
+			<xs:element name="Состояние" type="ns1:UUID"/>
+			<xs:element name="КоличествоВЗаявке" type="xs:double"/>
+			<xs:element name="КоличествоЗаказано" type="xs:double"/>
+			<xs:element name="КоличествоОтказано" type="xs:double"/>
+			<xs:element name="КоличествоНаСкладе" type="xs:double"/>
+			<xs:element name="КоличествоВыдано" type="xs:double"/>
+			<xs:element name="КоличествоВРезерве" type="xs:double"/>
+			<xs:element name="КоличествоПоступило" type="xs:double"/>
+			<xs:element name="КоличествоГотовоКВыдаче" type="xs:double"/>
+			<xs:element name="КоличествоВозвращено" type="xs:double"/>
+			<xs:element name="Цена" type="xs:double" nillable="true"/>
+			<xs:element name="ЗакупочнаяЦена" type="xs:double" nillable="true"/>
+			<xs:element name="Розница" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ТипДоставки" type="ns1:UUID" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочник.ГруппыКонтрагентов">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:int"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Приоритет" type="xs:int"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Менеджеры">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Код77" type="xs:string"/>
+			<xs:element name="ЛогинЭЛМА" type="xs:string"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочник.ПараметрыФормированияЗаказовПоставщикам">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="ПометкаУдаления" type="xs:boolean"/>
+			<xs:element name="Поставщик" type="ns1:UUID"/>
+			<xs:element name="АвтоСозданиеЗаказов" type="xs:boolean"/>
+			<xs:element name="ВремяЗапуска" type="xs:time"/>
+			<xs:element name="ОтдельныйЗаказ" type="xs:boolean"/>
+			<xs:element name="МинСуммаАвтоЗаказа" type="xs:float"/>
+			<xs:element name="ДниНедели1" type="xs:boolean"/>
+			<xs:element name="ДниНедели2" type="xs:boolean"/>
+			<xs:element name="ДниНедели3" type="xs:boolean"/>
+			<xs:element name="ДниНедели4" type="xs:boolean"/>
+			<xs:element name="ДниНедели5" type="xs:boolean"/>
+			<xs:element name="ДниНедели6" type="xs:boolean"/>
+			<xs:element name="ДниНедели7" type="xs:boolean"/>
+			<xs:element name="ПрайсыПоставщиков" type="tns:ПараметрыФормированияЗаказов.ПрайсыПоставщика"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Покупатели">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Логин" type="xs:string"/>
+			<xs:element name="Пароль" type="xs:string"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="НаименованиеПолное" type="xs:string"/>
+			<xs:element name="Менеджер" type="ns1:UUID"/>
+			<xs:element name="ЭлектроннаяПочта" type="xs:string"/>
+			<xs:element name="АдресДоставки" type="xs:string"/>
+			<xs:element name="КонтактныеЛица" type="tns:Справочник.Покупатели.КонтактныеЛица"/>
+			<xs:element name="РегионКод" type="xs:int" minOccurs="0"/>
+			<xs:element name="КоэффициентДоставки" type="xs:float" minOccurs="0"/>
+			<xs:element name="Заблокирован" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ГруппаКонтрагентаКод" type="xs:int" minOccurs="0"/>
+			<xs:element name="ГруппаКонтрагентаЗаблокировано" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ГруппаКонтрагентаЗаблокированоДо" type="xs:date"/>
+			<xs:element name="ИНН" type="xs:string"/>
+			<xs:element name="МаршрутДоставкиНаименование" type="xs:string"/>
+			<xs:element name="МаршрутДоставкиКод" type="xs:string"/>
+			<xs:element name="МаршрутДоставки2Код" type="xs:string"/>
+			<xs:element name="ХолдингКод" type="xs:string"/>
+			<xs:element name="ГородКод" type="xs:int"/>
+			<xs:element name="ДатаСоздания" type="xs:date"/>
+			<xs:element name="КлючевойКлиент" type="xs:boolean"/>
+			<xs:element name="СегментКонтрагентаКод" type="xs:int"/>
+			<xs:element name="БанкНаименование" type="xs:string"/>
+			<xs:element name="БанкБИК" type="xs:string"/>
+			<xs:element name="КоррСчет" type="xs:string" minOccurs="0"/>
+			<xs:element name="БанковскийСчет" type="xs:string" minOccurs="0"/>
+			<xs:element name="ДатаБлокировкиОтгрузок" type="xs:dateTime"/>
+			<xs:element name="ДатаБлокировкиЗаказов" type="xs:dateTime"/>
+			<xs:element name="ДоступнаУслугаЭкспрессДоставки" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СтоимостьУслугиЭДрубли" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="СтоимостьУслугиЭДбонусы" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="СуммаБесплатнойЭД" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="УдаленноеРасположение" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ГоловнойКонтрагент" type="ns1:UUID" minOccurs="0"/>
+			<xs:element name="СервисНа5" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ОбратнаяРеализацияПриВозвратеОтКлиента" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="Неактивный" type="xs:boolean"/>
+			<xs:element name="amount_days_accept" type="xs:int" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Покупатели.КонтактноеЛицо">
+		<xs:all>
+			<xs:element name="ФИО" type="xs:string"/>
+			<xs:element name="ТелефонСотовый" type="xs:string"/>
+			<xs:element name="ТелефонЛичногоКабинета" type="xs:string"/>
+			<xs:element name="Должность" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Покупатели.КонтактныеЛица">
+		<xs:choice>
+			<xs:element name="КонтактноеЛицо" type="tns:Справочник.Покупатели.КонтактноеЛицо" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочник.Поставщики">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="НаименованиеПолное" type="xs:string"/>
+			<xs:element name="ИНН" type="xs:string"/>
+			<xs:element name="ЮридическийАдрес" type="xs:string"/>
+			<xs:element name="ФактическийАдрес" type="xs:string"/>
+			<xs:element name="ЭлектроннаяПочта" type="xs:string"/>
+			<xs:element name="МенеджерСнабжения" type="ns1:UUID"/>
+			<xs:element name="ЗамМенеджераСнабжения" type="ns1:UUID"/>
+			<xs:element name="ОтсрочкаПлатежа" type="xs:int" minOccurs="0"/>
+			<xs:element name="ОплатаВЛюбойДень" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="БанкНаименование" type="xs:string"/>
+			<xs:element name="БанкБИК" type="xs:string"/>
+			<xs:element name="КоррСчет" type="xs:string" minOccurs="0"/>
+			<xs:element name="БанковскийСчет" type="xs:string" minOccurs="0"/>
+			<xs:element name="РаботаетСОкномПоставщика" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ПроцентОтклоненияЦенПрихода" type="xs:float" minOccurs="0"/>
+			<xs:element name="ПризнакОферты" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="VMI" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="СкладVMI" type="ns1:UUID" minOccurs="0"/>
+			<xs:element name="ОтдельныйЗаказ" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ЭлектроннаяПочтаДляРекламаций" type="xs:string"/>
+			<xs:element name="ДатаСоздания" type="xs:date"/>
+			<xs:element name="CROSS" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="STOCK" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="ГарантийноеПисьмо" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="Организация" type="xs:int" minOccurs="0"/>
+			<xs:element name="КодГородаРазгрузки1" type="xs:int" minOccurs="0"/>
+			<xs:element name="КодГородаРазгрузки2" type="xs:int" minOccurs="0"/>
+			<xs:element name="Неактивный" type="xs:boolean"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ВидыОтказов">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ВидыСостоянийСтрокДокументов">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Водители">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="parent_code" type="xs:int"/>
+			<xs:element name="parent_uuid" type="ns1:UUID"/>
+			<xs:element name="driver_code" type="xs:int"/>
+			<xs:element name="is_folder" type="xs:int"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="phone_number" type="xs:string" minOccurs="0"/>
+			<xs:element name="vehicle" type="xs:string" minOccurs="0"/>
+			<xs:element name="vehicle_number" type="xs:string" minOccurs="0"/>
+			<xs:element name="operation_type" type="xs:string" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Города">
+		<xs:all>
+			<xs:element name="Родитель" type="ns1:UUID"/>
+			<xs:element name="РодительКод" type="xs:int"/>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="ЭтоГруппа" type="xs:boolean"/>
+			<xs:element name="Код" type="xs:int"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ГруппыПокупателей">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Код" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ДоговорыКонтрагентов">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="ОрганизацияUUID" type="ns1:UUID"/>
+			<xs:element name="ОрганизацияКод" type="xs:string"/>
+			<xs:element name="КонтрагентЛогин" type="xs:string"/>
+			<xs:element name="КонтрагентUUID" type="ns1:UUID"/>
+			<xs:element name="НомерДоговора" type="xs:string"/>
+			<xs:element name="ДатаДоговора" type="xs:dateTime"/>
+			<xs:element name="Заблокирован" type="xs:boolean"/>
+			<xs:element name="Подписан" type="xs:boolean"/>
+			<xs:element name="НаличныйРасчет" type="xs:boolean"/>
+			<xs:element name="Оферта" type="xs:boolean"/>
+			<xs:element name="РасчетПоКалендарнымДням" type="xs:boolean"/>
+			<xs:element name="СуммаКредита" type="xs:double"/>
+			<xs:element name="ДнейКредита" type="xs:int"/>
+			<xs:element name="КредитныйКоэффициент" type="xs:float"/>
+			<xs:element name="UUID77" type="ns1:UUID"/>
+			<xs:element name="СлужебныйДоговор" type="xs:boolean"/>
+			<xs:element name="БанковскийСчетОрганизацииДляПлатежей" type="xs:string"/>
+			<xs:element name="БлокировкаСозданияЗаявокНаСайте" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ОсновнойДоговор" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ВременнаяОтсрочка_Использовать" type="xs:boolean" nillable="true" minOccurs="0"/>
+			<xs:element name="ВременнаяОтсрочка_ДнейКредита" type="xs:int" nillable="true" minOccurs="0"/>
+			<xs:element name="ВременнаяОтсрочка_СрокДействия" type="xs:date" nillable="true" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Изготовители">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:int"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Контрагенты">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="НаименованиеПолное" type="xs:string"/>
+			<xs:element name="ИНН" type="xs:long"/>
+			<xs:element name="Телефоны" type="xs:string"/>
+			<xs:element name="АдресФактический" type="xs:string"/>
+			<xs:element name="АдресЮридический" type="xs:string"/>
+			<xs:element name="ЭлектроннаяПочта" type="xs:string"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Банк" type="xs:int"/>
+			<xs:element name="РасчетныйСчет" type="xs:string"/>
+			<xs:element name="КодыПрайсов" type="xs:int"/>
+			<xs:element name="МенеджерКод" type="xs:string"/>
+			<xs:element name="МенеджерНаименование" type="xs:string"/>
+			<xs:element name="ПроцентОтклоненияЦенПрихода" type="xs:double"/>
+			<xs:element name="date_add" type="xs:dateTime"/>
+			<xs:element name="Неактивный" type="xs:boolean"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочники.МаршрутыДоставки">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="route_code" type="xs:int"/>
+			<xs:element name="name" type="xs:string" minOccurs="0"/>
+			<xs:element name="parent_code" type="xs:int"/>
+			<xs:element name="is_folder" type="xs:int"/>
+			<xs:element name="operation_type" type="xs:string" minOccurs="0"/>
+			<xs:element name="f_sum" type="xs:double" nillable="true" minOccurs="0"/>
+			<xs:element name="f_sum_other" type="xs:double" nillable="true" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Номенклатура">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Изготовитель" type="ns1:UUID"/>
+			<xs:element name="Артикул" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Организации">
+		<xs:sequence>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="НаименованиеПолное" type="xs:string"/>
+			<xs:element name="ЮрФизЛицо" type="xs:int"/>
+			<xs:element name="ИНН" type="xs:unsignedLong"/>
+			<xs:element name="КПП" type="xs:unsignedLong"/>
+			<xs:element name="ОГРН" type="xs:unsignedLong"/>
+			<xs:element name="КодИМНС" type="xs:unsignedLong"/>
+			<xs:element name="КодПоОКАТО" type="xs:unsignedLong"/>
+			<xs:element name="КодПоОКТМО" type="xs:unsignedLong"/>
+			<xs:element name="КодПоОКПО" type="xs:unsignedLong"/>
+			<xs:element name="СвидетельствоДатаВыдачи" type="xs:dateTime"/>
+			<xs:element name="СвидетельствоСерияНомер" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ПараметрыФормированияСлужебныхЗаданий">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID" nillable="true"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Включено" type="xs:boolean" nillable="true"/>
+			<xs:element name="МаршрутДоставки" type="ns1:UUID" nillable="true"/>
+			<xs:element name="Склад" type="ns1:UUID" nillable="true"/>
+			<xs:element name="СкладКонечнойРазгрузки" type="ns1:UUID" nillable="true"/>
+			<xs:element name="Расписание" type="tns:Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание" nillable="true"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание">
+		<xs:sequence>
+			<xs:element name="ДеньНедели" type="tns:Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание.ДеньНедели" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ПараметрыФормированияСлужебныхЗаданий.Расписание.ДеньНедели">
+		<xs:all>
+			<xs:element name="НомерДняНедели" type="xs:int" nillable="true"/>
+			<xs:element name="Включено" type="xs:boolean" nillable="true"/>
+			<xs:element name="ВремяЗапуска" type="xs:time" nillable="true"/>
+			<xs:element name="ВремяНачалаУпаковки" type="xs:time" nillable="true"/>
+			<xs:element name="ВремОкончанияДовыписки" type="xs:time" nillable="true"/>
+			<xs:element name="ВремОтгрузки" type="xs:time" nillable="true"/>
+			<xs:element name="ВремОтгрузки_Региональное" type="xs:time" nillable="true"/>
+			<xs:element name="ВремДоставки_Региональное" type="xs:time" nillable="true"/>
+			<xs:element name="ДоставкаНаСледДень" type="xs:boolean" nillable="true"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ПрайсыПоставщиков">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Склад" type="ns1:UUID"/>
+			<xs:element name="Контрагент" type="ns1:UUID"/>
+			<xs:element name="ПризнакVMI" type="xs:boolean"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Регионы">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:int"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="amount_days_accept" type="xs:int" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочники.СегментыКонтрагентов">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:int"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Склады">
+		<xs:choice>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Филиал" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="ПризнакVMI" type="xs:int"/>
+			<xs:element name="ГородНаименование" type="xs:string"/>
+			<xs:element name="КонтрагентПополненияСкладаЛогин" type="xs:string"/>
+			<xs:element name="КодСайта" type="xs:string"/>
+			<xs:element name="ФизическийСклад" type="ns1:UUID"/>
+			<xs:element name="Адрес" type="xs:string"/>
+			<xs:element name="Оптовый" type="xs:boolean"/>
+			<xs:element name="ТипСклада" type="tns:EnumRef.ТипыСкладов" minOccurs="0"/>
+			<xs:element name="АвтоматическоеПеремещение" type="xs:boolean" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Справочники.СостоянияСтрокДокументов">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="КодДляСайта" type="xs:int"/>
+			<xs:element name="ВидОтказа" type="ns1:UUID"/>
+			<xs:element name="ВидСостояния" type="ns1:UUID"/>
+			<xs:element name="НаименованиеДляСайта" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.ТорговыеТочки">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Код" type="xs:string"/>
+			<xs:element name="Наименование" type="xs:string"/>
+			<xs:element name="Контрагент" type="ns1:UUID"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="Справочники.Филиалы">
+		<xs:all>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+			<xs:element name="Наименование" type="xs:string"/>
+		</xs:all>
+	</xs:complexType>
+	<xs:complexType name="УдалениеОбъекта">
+		<xs:all>
+			<xs:element name="ТипОбъекта" type="xs:string"/>
+			<xs:element name="Ссылка" type="ns1:UUID"/>
+		</xs:all>
+	</xs:complexType>
+</xs:schema>

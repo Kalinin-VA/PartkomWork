@@ -1,0 +1,1 @@
+regsvr32 "C:\Program Files (x86)\1cv8\8.3.10.2580\bin\comcntr.dll"

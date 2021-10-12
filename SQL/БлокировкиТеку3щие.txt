@@ -1,0 +1,46 @@
+use [partkom83];
+
+SET NOCOUNT ON;
+
+
+
+select  
+   dm_tran_locks.request_session_id as [ID—ессии],
+    CASE
+                  WHEN resource_type = 'object'
+                        THEN object_name(dm_tran_locks.resource_associated_entity_id)
+                  ELSE object_name(partitions.object_id)
+            END as [»м€ќбъекта],
+            cast('' as varchar(100)) as [»м€ќбъекта1с],
+            indexes.name as [»м€»ндекса],
+            cast('' as varchar(100)) as [»м€»ндекса1с],
+            case dm_tran_locks.resource_type 
+    when 'KEY' then '«апись' 
+    when 'PAGE' then '—траница' 
+    when 'OBJECT' then '“аблица' 
+   end as  [√ранул€рность],
+            rtrim(dm_tran_locks.resource_description) as [ќписание],
+            dm_tran_locks.request_mode as [–ежим«апроса],
+            case dm_tran_locks.request_status when 'GRANT' then '”становлена' else 'ќжидает' end as [—татусЅлокировки],
+            case ISNULL(indexes.index_id, 0) when 1 then 1 else 0 end as [»ндекс ластерный]
+from sys.dm_tran_locks
+left join sys.partitions on partitions.hobt_id = dm_tran_locks.resource_associated_entity_id
+left join sys.indexes on indexes.object_id = partitions.object_id 
+and indexes.index_id = partitions.index_id
+where 
+ resource_associated_entity_id > 0
+ and (request_mode in ('S','U','X','RangeS-S','RangeS-U','RangeI-N','RangeI-S','RangeI-U','RangeI-X','RangeX-S','RangeX-U','RangeX-X') or request_status = 'WAIT')
+ and resource_type <> 'RID' -- если заблокирован RID кучи, то это не обрабатываем
+ and resource_database_id = DB_ID()
+ and CASE
+   WHEN resource_type = 'object'
+    THEN object_name(dm_tran_locks.resource_associated_entity_id)
+   ELSE object_name(partitions.object_id)
+  END not like 'sys%'
+    and CASE
+   WHEN resource_type = 'object'
+    THEN object_name(dm_tran_locks.resource_associated_entity_id)
+   ELSE object_name(partitions.object_id)
+  END  <> 'Config' order by [√ранул€рность] desc;
+  --exec sp_who2
+Exec sp_whoisactive @get_full_inner_text = 1, @get_outer_command = 1, @get_plans = 1

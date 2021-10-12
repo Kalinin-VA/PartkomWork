@@ -1,0 +1,5 @@
+SELECT LEFT((SELECT [text] FROM sys.dm_exec_sql_text(der.sql_handle)),500) AS txt
+,der.blocking_session_id as blocker, DB_NAME(der.database_id) AS База, s.login_name, *
+from sys.dm_exec_requests der
+left join sys.dm_exec_sessions s ON s.session_id = der.session_id
+WHERE der.session_id<>@@SPID and  DB_NAME(der.database_id)  = 'asAvangard'

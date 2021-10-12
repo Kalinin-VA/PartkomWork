@@ -1,0 +1,10 @@
+SELECT top 100
+    OBJECT_NAME(object_id) as "Object"
+    ,page_latch_wait_count
+    ,page_latch_wait_in_ms
+    ,tree_page_latch_wait_count
+    ,tree_page_latch_wait_in_ms  
+    ,Page_io_latch_wait_count
+    ,Page_io_latch_wait_in_ms
+FROM sys.dm_db_index_operational_stats (DB_ID(), NULL, NULL, NULL)
+order by Page_io_latch_wait_in_ms desc
